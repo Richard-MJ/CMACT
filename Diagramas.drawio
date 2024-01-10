@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-10T21:39:45.134Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0" etag="Jpjs4_xQPmapP40oNEYh" version="22.1.17" type="github" pages="11">
+<mxfile host="app.diagrams.net" modified="2024-01-10T21:40:26.492Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0" etag="3-BdoinicLLW7ZrMOVK3" version="22.1.17" type="github" pages="11">
   <diagram id="FBo9sDV9NM8amdhgHsJE" name="D. Secuencia Output_Consulta Cuenta">
     <mxGraphModel dx="1190" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -6500,6 +6500,11 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="ebFo1Tzkf65SIqieZEvs-21" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" vertex="1" connectable="0" parent="ebFo1Tzkf65SIqieZEvs-20">
+          <mxGeometry x="-0.8602" y="2" relative="1" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="RVlgUX-BcLX8twMQ2MYs-19" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;¿Respuesta es aceptado?&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="8RCFthIjpTEJrYzWw_QS-38">
           <mxGeometry x="201" y="970" width="132.5" height="80" as="geometry" />
         </mxCell>
@@ -7110,7 +7115,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="04E0vP_FGKZH5Qwks4ms" name="D. Flujo orden Salida">
-    <mxGraphModel dx="647" dy="419" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+    <mxGraphModel dx="970" dy="629" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
