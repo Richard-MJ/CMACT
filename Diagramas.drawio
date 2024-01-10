@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-10T18:14:39.033Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0" etag="SWbCUq4tByVGsA3Eorlp" version="22.1.17" type="github" pages="10">
+<mxfile host="app.diagrams.net" modified="2024-01-10T20:20:08.130Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0" etag="4qrrkxToTB2jthSrF2PZ" version="22.1.17" type="github" pages="10">
   <diagram id="FBo9sDV9NM8amdhgHsJE" name="D. Secuencia Output_Consulta Cuenta">
     <mxGraphModel dx="1190" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -6544,23 +6544,23 @@
     </mxGraphModel>
   </diagram>
   <diagram id="AsIPiO8Od1QaMtR1H3I_" name="Arquitectura">
-    <mxGraphModel dx="1525" dy="902" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+    <mxGraphModel dx="1744" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-6" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-          <mxGeometry x="400" y="100" width="570" height="570" as="geometry" />
+          <mxGeometry x="388" y="111" width="570" height="570" as="geometry" />
         </mxCell>
-        <mxCell id="MgaNneYsUv4QF5dYr_Rk-1" value="INFRAESTRUCTURA" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="MgaNneYsUv4QF5dYr_Rk-1" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;INFRAESTRUCTURA&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
           <mxGeometry x="510" y="190" width="280" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="MgaNneYsUv4QF5dYr_Rk-2" value="DOMINIO" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="MgaNneYsUv4QF5dYr_Rk-2" value="&lt;font style=&quot;font-size: 21px;&quot;&gt;DOMINIO&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" parent="1" vertex="1">
           <mxGeometry x="510" y="320" width="280" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="MgaNneYsUv4QF5dYr_Rk-3" value="APLICACION" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="MgaNneYsUv4QF5dYr_Rk-3" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;APLICACION&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="1" vertex="1">
           <mxGeometry x="510" y="450" width="280" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="MgaNneYsUv4QF5dYr_Rk-4" value="DISTRIBUCION" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="MgaNneYsUv4QF5dYr_Rk-4" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;DISTRIBUCION&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="1" vertex="1">
           <mxGeometry x="510" y="580" width="280" height="70" as="geometry" />
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-9" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="MgaNneYsUv4QF5dYr_Rk-2" target="MgaNneYsUv4QF5dYr_Rk-1" edge="1">
@@ -6581,8 +6581,8 @@
             <mxPoint x="710" y="520" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="MgaNneYsUv4QF5dYr_Rk-14" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;TRANSFERENCIAS INMEDIATAS&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="495" y="120" width="310" height="30" as="geometry" />
+        <mxCell id="MgaNneYsUv4QF5dYr_Rk-14" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;API - TRANSFERENCIAS INMEDIATAS&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="460" y="130" width="417" height="30" as="geometry" />
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-16" value="TAKANA API CORE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1020" y="510" width="280" height="70" as="geometry" />
@@ -6603,10 +6603,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-24" value="CLIENTE" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="635" y="900" width="30" height="60" as="geometry" />
+          <mxGeometry x="635" y="800" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-26" value="CANAL VENTANILLA" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="500" y="740" width="300" height="70" as="geometry" />
+          <mxGeometry x="550.5" y="714" width="199" height="34" as="geometry" />
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-27" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="MgaNneYsUv4QF5dYr_Rk-24" target="MgaNneYsUv4QF5dYr_Rk-26" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
