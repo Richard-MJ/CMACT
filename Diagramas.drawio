@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-10T17:00:50.022Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="Y9j7rev-AtSf0cIbdeqp" version="22.1.18" type="github" pages="7">
+<mxfile host="app.diagrams.net" modified="2024-01-10T17:01:36.988Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0" etag="kHU2EjZpdQWLzWBIq0qT" version="22.1.17" type="github" pages="8">
   <diagram id="FBo9sDV9NM8amdhgHsJE" name="D. Secuencia Output_Consulta Cuenta">
     <mxGraphModel dx="1190" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -5783,7 +5783,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="NIn24Vgso0sX6eDRoUnk" name="Diagrama de clases">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="839" dy="496" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -5881,7 +5881,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="50yv42WYTPBUdWKi8R0Z" name="Diagrama de Entidad - Relacion">
-    <mxGraphModel dx="1678" dy="992" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1864" dy="1102" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -5889,7 +5889,7 @@
           <mxGeometry x="160" y="110" width="410" height="50" as="geometry" />
         </mxCell>
         <mxCell id="vKN6vkoHYrwdJqunEE2--3" value="HORARIO PLAZO" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1110" y="414" width="170" height="50" as="geometry" />
+          <mxGeometry x="1070" y="414" width="170" height="50" as="geometry" />
         </mxCell>
         <mxCell id="vKN6vkoHYrwdJqunEE2--4" value="ENTIDAD_FINANCIERA_CCE_INMEDIATA" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="185" y="380" width="350" height="50" as="geometry" />
@@ -5913,19 +5913,19 @@
           <mxGeometry x="680" y="590" width="280" height="50" as="geometry" />
         </mxCell>
         <mxCell id="DOr89oyfSoYbn0lQN4rR-1" value="PARAMETROS GENERALES" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1090" y="160" width="250" height="50" as="geometry" />
+          <mxGeometry x="1050" y="160" width="250" height="50" as="geometry" />
         </mxCell>
         <mxCell id="DOr89oyfSoYbn0lQN4rR-2" value="CODIGO DE RESPUESTA" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1440" y="160" width="240" height="50" as="geometry" />
+          <mxGeometry x="1400" y="160" width="240" height="50" as="geometry" />
         </mxCell>
         <mxCell id="DjeWB9GV8Adnia-p7vzm-1" value="MOVIMIENTOS" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1460" y="585" width="160" height="50" as="geometry" />
+          <mxGeometry x="1420" y="585" width="160" height="50" as="geometry" />
         </mxCell>
         <mxCell id="c-hhOihmCRcL84Otcwrq-1" value="TRANSACCIONES" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1110" y="590" width="160" height="50" as="geometry" />
+          <mxGeometry x="1070" y="590" width="160" height="50" as="geometry" />
         </mxCell>
         <mxCell id="WboEwfkQJmOnuKdwd3vg-1" value="TIPO HORARIO" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1520" y="414" width="170" height="50" as="geometry" />
+          <mxGeometry x="1480" y="414" width="170" height="50" as="geometry" />
         </mxCell>
         <mxCell id="640PJey221yTsoH5V4p1-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="1" source="x-zyFVkp27h37Y8TLlqE-1" target="wOcwySozw00ctQjj0Sma-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -5990,7 +5990,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="x-zyFVkp27h37Y8TLlqE-10" value="TIENE" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="1350" y="409" width="120" height="60" as="geometry" />
+          <mxGeometry x="1310" y="409" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="640PJey221yTsoH5V4p1-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="1" source="RxOsgPmW9nJvrcPZ16jB-1" target="wOcwySozw00ctQjj0Sma-4" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -6000,6 +6000,34 @@
         </mxCell>
         <mxCell id="RxOsgPmW9nJvrcPZ16jB-1" value="TIENE" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="480" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="OTDV13_R-sj8KhqAxUsp" name="Página-7">
+    <mxGraphModel dx="1398" dy="827" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EODDbs5TlvtilDPFsJyF-6" value="Diagrama de Flujo - Consulta Cuenta - Entradas" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="150.00000000000045" y="50" width="604.35" height="650" as="geometry" />
+        </mxCell>
+        <mxCell id="EODDbs5TlvtilDPFsJyF-7" value="Operadora" style="swimlane;startSize=20;html=1;fontSize=16;" vertex="1" parent="EODDbs5TlvtilDPFsJyF-6">
+          <mxGeometry y="20" width="200" height="630" as="geometry" />
+        </mxCell>
+        <mxCell id="EODDbs5TlvtilDPFsJyF-10" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;fontSize=16;" vertex="1" parent="EODDbs5TlvtilDPFsJyF-7">
+          <mxGeometry x="84.99999999999955" y="30" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="EODDbs5TlvtilDPFsJyF-11" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;fontSize=12;curved=1;" edge="1" source="EODDbs5TlvtilDPFsJyF-10" parent="EODDbs5TlvtilDPFsJyF-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="99.99999999999955" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EODDbs5TlvtilDPFsJyF-8" value="Api Transferencias" style="swimlane;startSize=20;html=1;fontSize=16;" vertex="1" parent="EODDbs5TlvtilDPFsJyF-6">
+          <mxGeometry x="200" y="20" width="200" height="630" as="geometry" />
+        </mxCell>
+        <mxCell id="EODDbs5TlvtilDPFsJyF-9" value="Api Core" style="swimlane;startSize=20;html=1;fontSize=16;" vertex="1" parent="EODDbs5TlvtilDPFsJyF-6">
+          <mxGeometry x="400" y="20" width="204.35" height="630" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
