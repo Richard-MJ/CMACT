@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-11T20:32:48.182Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="K0Fca2nqFvXixhoRlUdg" version="22.1.18" type="github" pages="12">
+<mxfile host="app.diagrams.net" modified="2024-01-11T20:48:00.553Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="19r2-ry-PcTI6bN16_ED" version="22.1.18" type="github" pages="12">
   <diagram id="FBo9sDV9NM8amdhgHsJE" name="D. Secuencia Salidas Consulta Cuenta">
     <mxGraphModel dx="664" dy="326" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -1747,7 +1747,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="uCrft-sDl7chxPCTG-OC" name="D.S. Consulta Salida">
-    <mxGraphModel dx="1648" dy="870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+    <mxGraphModel dx="1978" dy="1044" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -9988,7 +9988,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="AsIPiO8Od1QaMtR1H3I_" name="Arquitectura Api">
-    <mxGraphModel dx="1235" dy="800" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+    <mxGraphModel dx="989" dy="522" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10007,10 +10007,10 @@
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-4" value="&lt;font style=&quot;font-size: 17px;&quot;&gt;DISTRIBUCION&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="1" vertex="1">
           <mxGeometry x="510" y="580" width="280" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="MgaNneYsUv4QF5dYr_Rk-9" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="MgaNneYsUv4QF5dYr_Rk-2" target="MgaNneYsUv4QF5dYr_Rk-1" edge="1">
+        <mxCell id="MgaNneYsUv4QF5dYr_Rk-9" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" edge="1">
           <mxGeometry width="100" height="100" relative="1" as="geometry">
-            <mxPoint x="610" y="390" as="sourcePoint" />
-            <mxPoint x="710" y="290" as="targetPoint" />
+            <mxPoint x="576" y="320" as="sourcePoint" />
+            <mxPoint x="576" y="260" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-10" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="MgaNneYsUv4QF5dYr_Rk-3" target="MgaNneYsUv4QF5dYr_Rk-2" edge="1">
@@ -10065,16 +10065,22 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-31" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
-          <mxGeometry x="1130" y="230" width="60" height="80" as="geometry" />
+          <mxGeometry x="1127" y="185" width="60" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="MgaNneYsUv4QF5dYr_Rk-32" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="MgaNneYsUv4QF5dYr_Rk-2" target="MgaNneYsUv4QF5dYr_Rk-31" edge="1">
+        <mxCell id="MgaNneYsUv4QF5dYr_Rk-32" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="MgaNneYsUv4QF5dYr_Rk-1" target="MgaNneYsUv4QF5dYr_Rk-31" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="800" y="352.5" as="sourcePoint" />
             <mxPoint x="1030" y="417.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="MgaNneYsUv4QF5dYr_Rk-33" value="SAF" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="1130" y="310" width="60" height="30" as="geometry" />
+          <mxGeometry x="1130" y="275" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="W85Y9puUF8XfRPBGQR44-2" value="" style="shape=flexArrow;endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="MgaNneYsUv4QF5dYr_Rk-1" target="MgaNneYsUv4QF5dYr_Rk-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="870" y="343" as="sourcePoint" />
+            <mxPoint x="870" y="273" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
@@ -10416,7 +10422,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="04E0vP_FGKZH5Qwks4ms" name="D. Flujo orden Salida">
-    <mxGraphModel dx="970" dy="629" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+    <mxGraphModel dx="1413" dy="746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -10530,7 +10536,7 @@
         <mxCell id="FZ7LkyKZzDsoOFpFNBvm-2" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Guardar Transacción Orden Transferencia en pendiente&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="Fm60AuZU5UoWmttqIC-g-36" vertex="1">
           <mxGeometry x="50.63" y="360" width="119.37" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="EVuuCTwsbcbvIjRQMaHw-1" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="Fm60AuZU5UoWmttqIC-g-36" source="FZ7LkyKZzDsoOFpFNBvm-3" target="KGmqvCgWxmU0HTg7-9zw-57">
+        <mxCell id="EVuuCTwsbcbvIjRQMaHw-1" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="Fm60AuZU5UoWmttqIC-g-36" source="FZ7LkyKZzDsoOFpFNBvm-3" target="KGmqvCgWxmU0HTg7-9zw-57" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="FZ7LkyKZzDsoOFpFNBvm-3" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Generar Respuesta de reintentos culminados&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="Fm60AuZU5UoWmttqIC-g-36" vertex="1">
