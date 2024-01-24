@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-24T19:25:34.479Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="dJZO77l_1M0BMPTOaPov" version="22.1.21" type="github" pages="12">
+<mxfile host="app.diagrams.net" modified="2024-01-24T20:24:29.939Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="2hMC0Z5grtGAIeHEnPU0" version="22.1.21" type="github" pages="13">
   <diagram id="FBo9sDV9NM8amdhgHsJE" name="D. Secuencia Salidas Consulta Cuenta">
     <mxGraphModel dx="1063" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -11541,6 +11541,83 @@
               <mxPoint x="1707" y="573" />
             </Array>
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="DBKVHofRMBoidGjAdw2e" name="ArquItectura de aplicacion">
+    <mxGraphModel dx="1181" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-24" value="BANCA RED" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="590" width="940" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-1" value="API TRANSFERENCIAS" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=930;height=40;" vertex="1" parent="1">
+          <mxGeometry x="560" y="680" width="940" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-3" value="Consulta Cuenta" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="630" y="772.5" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-4" value="SALIDAS" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=70;height=30;" vertex="1" parent="1">
+          <mxGeometry x="610" y="737.5" width="260" height="245" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-5" value="ENTRADAS" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;width=90;height=30;" vertex="1" parent="1">
+          <mxGeometry x="915" y="740" width="535" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-6" value="Ordenes Transferencias" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="630" y="822.5" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-7" value="Echo test" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="630" y="872.5" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-8" value="Sign off/On" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="630" y="922.5" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-9" value="Consulta Cuenta" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="940" y="780" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-10" value="Ordenes Transferencias" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="940" y="830" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-12" value="Confirmacion" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="940" y="880" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-13" value="Cancelacion" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="780" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-14" value="Echo test" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="830" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-15" value="Notificaciones" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="880" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-16" value="Solicitud Estado Pago" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="930" width="220" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-19" value="OPERADORA" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="510" width="940" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-21" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1260" y="570" width="60" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-22" value="" style="shape=singleArrow;direction=north;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="713" y="570" width="60" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-25" value="TAKANA" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1080" width="940" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-26" value="" style="shape=singleArrow;direction=north;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="980" width="60" height="102.5" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-28" value="VENTANILLA" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1210" width="940" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-30" value="" style="shape=singleArrow;direction=south;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1159" y="980" width="60" height="102.5" as="geometry" />
+        </mxCell>
+        <mxCell id="1bUdFOdmBpevBjMYTtU5-33" value="" style="shape=doubleArrow;direction=south;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="1140" width="60" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
