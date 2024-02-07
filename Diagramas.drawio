@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-02-06T23:52:33.881Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="uhe2sQoNQ2GS-J3y25rJ" version="23.1.1" type="github" pages="13">
+<mxfile host="app.diagrams.net" modified="2024-02-07T15:14:48.033Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="PAOn5Jih5DGysFL1NWvd" version="23.1.1" type="github" pages="13">
   <diagram id="FBo9sDV9NM8amdhgHsJE" name="D. Secuencia Salidas Consulta Cuenta">
     <mxGraphModel dx="1063" dy="522" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -6795,7 +6795,7 @@
     </mxGraphModel>
   </diagram>
   <diagram name="D. Secuencia Entradas Consulta Cuenta" id="qxqq8HcB1dyg6e85Q9ly">
-    <mxGraphModel dx="719" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="846" dy="518" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -7045,8 +7045,8 @@
             <mxPoint x="1018" y="189" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bgrk1wst7cJO5LblPADW-24" value="ValidarDatosConsultaCuenta()" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
-          <mxGeometry x="0.0043" relative="1" as="geometry">
+        <mxCell id="bgrk1wst7cJO5LblPADW-24" value="ValidarReglasConsultaCuenta()" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry x="0.0096" relative="1" as="geometry">
             <mxPoint x="1211" y="584" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="1245" y="584" />
@@ -7069,7 +7069,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bgrk1wst7cJO5LblPADW-27" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;MaquetacionRespuestaDatosConsultaCuentaCEE(Aceptado)&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+        <mxCell id="bgrk1wst7cJO5LblPADW-27" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;MaquetarDatos(Aceptado)&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
           <mxGeometry x="0.0025" relative="1" as="geometry">
             <mxPoint x="1212" y="640" as="sourcePoint" />
             <Array as="points">
@@ -7080,8 +7080,8 @@
             <mxPoint x="1212" y="676" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bgrk1wst7cJO5LblPADW-28" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacoraConsultaCuentaRespuesta()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
-          <mxGeometry x="0.0025" relative="1" as="geometry">
+        <mxCell id="bgrk1wst7cJO5LblPADW-28" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacora()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry x="0.0096" relative="1" as="geometry">
             <mxPoint x="1212" y="697.04" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="1246" y="697.04" />
@@ -7091,8 +7091,8 @@
             <mxPoint x="1212" y="733.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bgrk1wst7cJO5LblPADW-29" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacoraConsultaCuenta()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
-          <mxGeometry x="0.0025" relative="1" as="geometry">
+        <mxCell id="bgrk1wst7cJO5LblPADW-29" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacora()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry x="0.0096" relative="1" as="geometry">
             <mxPoint x="1212" y="345" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="1246" y="345" />
@@ -7102,10 +7102,11 @@
             <mxPoint x="1212" y="381" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="bgrk1wst7cJO5LblPADW-30" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;return ConsultaCuentaParaCCE(Aceptado)&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;fontSize=10;" parent="1" target="bgrk1wst7cJO5LblPADW-16" edge="1">
-          <mxGeometry relative="1" as="geometry">
+        <mxCell id="bgrk1wst7cJO5LblPADW-30" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;return ConsultaCuentaDeCCE(Aceptado)&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;fontSize=10;" parent="1" target="bgrk1wst7cJO5LblPADW-16" edge="1">
+          <mxGeometry x="0.0017" relative="1" as="geometry">
             <mxPoint x="1038" y="849" as="targetPoint" />
             <mxPoint x="1201" y="849.0000000000001" as="sourcePoint" />
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="bgrk1wst7cJO5LblPADW-31" value="CMAC TACNA" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;fontSize=16;width=160;height=30;" parent="1" vertex="1">
@@ -7266,7 +7267,7 @@
             <mxPoint x="361.9999999999998" y="1914" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3CmaNw2AZgf2K89K1Ftx-13" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;MaquetacionRespuestaDatosConsultaCuentaCEE(Rechazado)&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+        <mxCell id="3CmaNw2AZgf2K89K1Ftx-13" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;MaquetarDatos(Rechazado)&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
           <mxGeometry x="0.0025" relative="1" as="geometry">
             <mxPoint x="363" y="1934" as="sourcePoint" />
             <Array as="points">
@@ -7277,8 +7278,8 @@
             <mxPoint x="363" y="1970" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3CmaNw2AZgf2K89K1Ftx-14" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacoraConsultaCuentaRespuesta()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
-          <mxGeometry x="0.0025" relative="1" as="geometry">
+        <mxCell id="3CmaNw2AZgf2K89K1Ftx-14" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacora()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry x="-0.0056" relative="1" as="geometry">
             <mxPoint x="363" y="1991.04" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="397" y="1991.04" />
@@ -7288,7 +7289,7 @@
             <mxPoint x="363" y="2027.04" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3CmaNw2AZgf2K89K1Ftx-15" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacoraConsultaCuenta()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+        <mxCell id="3CmaNw2AZgf2K89K1Ftx-15" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;RegistrarBitacora()&lt;br style=&quot;font-size: 10px;&quot;&gt;&lt;/font&gt;" style="html=1;align=left;spacingLeft=2;endArrow=block;rounded=0;edgeStyle=orthogonalEdgeStyle;curved=0;rounded=0;fontSize=10;startSize=8;endSize=8;exitX=0.7;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
           <mxGeometry x="0.0025" relative="1" as="geometry">
             <mxPoint x="363" y="1308" as="sourcePoint" />
             <Array as="points">
@@ -7299,7 +7300,7 @@
             <mxPoint x="363" y="1344" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="3CmaNw2AZgf2K89K1Ftx-16" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;ConsultaCuentaParaCCE(Rechazado)&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;fontSize=10;" parent="1" target="3CmaNw2AZgf2K89K1Ftx-2" edge="1">
+        <mxCell id="3CmaNw2AZgf2K89K1Ftx-16" value="&lt;span style=&quot;font-size: 10px;&quot;&gt;return ConsultaCuentaDeCCE(Rechazado)&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;fontSize=10;" parent="1" target="3CmaNw2AZgf2K89K1Ftx-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="189" y="2143" as="targetPoint" />
             <mxPoint x="352" y="2143" as="sourcePoint" />
