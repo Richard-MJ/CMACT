@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-02-21T16:54:17.411Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="5sU2mwcF7ztx97OXBfcJ" version="23.1.5" type="github" pages="11">
+<mxfile host="app.diagrams.net" modified="2024-02-22T00:07:13.821Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 OPR/105.0.0.0" etag="2iW8SSZSEW4mdPp6F8uR" version="23.1.5" type="github" pages="11">
   <diagram id="uCrft-sDl7chxPCTG-OC" name="D.S. Consulta Salida">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -6303,7 +6303,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="OTDV13_R-sj8KhqAxUsp" name="Diagrama de flujo - Entradas">
-    <mxGraphModel dx="719" dy="440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1027" dy="629" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -6398,7 +6398,7 @@
         <mxCell id="WdrkkNhnBbbUk-abGIb9-90" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="EODDbs5TlvtilDPFsJyF-8" source="WdrkkNhnBbbUk-abGIb9-82" target="WdrkkNhnBbbUk-abGIb9-89" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WdrkkNhnBbbUk-abGIb9-82" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Registra en la bitácora el mensaje de respuesta&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="EODDbs5TlvtilDPFsJyF-8" vertex="1">
+        <mxCell id="WdrkkNhnBbbUk-abGIb9-82" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Actualiza en la&amp;nbsp; bitácora el mensaje de respuesta&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="EODDbs5TlvtilDPFsJyF-8" vertex="1">
           <mxGeometry x="195.99999999999955" y="854" width="130" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WdrkkNhnBbbUk-abGIb9-89" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Solicita Encriptación del mensaje&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="EODDbs5TlvtilDPFsJyF-8" vertex="1">
@@ -6646,7 +6646,7 @@
         <mxCell id="bPhsAExS4dFbKCZO629r-48" value="Api Core" style="swimlane;startSize=20;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-1" vertex="1">
           <mxGeometry x="775.65" y="20" width="170" height="760" as="geometry" />
         </mxCell>
-        <mxCell id="bPhsAExS4dFbKCZO629r-49" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Obtiene datos de cliente receptor&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-48" vertex="1">
+        <mxCell id="bPhsAExS4dFbKCZO629r-49" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;Verifica Conexión&lt;/span&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-48" vertex="1">
           <mxGeometry x="28.499999999999524" y="315" width="127" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-51" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-1" source="bPhsAExS4dFbKCZO629r-31" target="bPhsAExS4dFbKCZO629r-49" edge="1">
@@ -6692,16 +6692,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-73" value="Diagrama de Flujo - Orden de Transferencia - Entradas" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="160" y="1250" width="1025.65" height="1360" as="geometry" />
+          <mxGeometry x="160" y="1250" width="1025.65" height="1400" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-74" value="Operadora" style="swimlane;startSize=20;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-73" vertex="1">
-          <mxGeometry y="20" width="150" height="1340" as="geometry" />
+          <mxGeometry y="20" width="150" height="1380" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-75" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-74" vertex="1">
           <mxGeometry x="59.999999999999545" y="58" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-77" value="Api Transferencias" style="swimlane;startSize=20;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-73" vertex="1">
-          <mxGeometry x="150" y="20" width="370" height="1340" as="geometry" />
+          <mxGeometry x="150" y="20" width="370" height="1380" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-78" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Solicita Desencriptación del mensaje&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
           <mxGeometry x="160" y="51" width="127" height="50" as="geometry" />
@@ -6776,10 +6776,10 @@
         <mxCell id="bPhsAExS4dFbKCZO629r-96" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Maqueta respuesta de aceptado&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
           <mxGeometry x="194.99999999999955" y="768" width="130" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-26" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="bPhsAExS4dFbKCZO629r-98" target="byXSXK4cCEQrSbxq-qTO-19" edge="1">
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" edge="1" parent="bPhsAExS4dFbKCZO629r-77" source="bPhsAExS4dFbKCZO629r-98" target="2_BUlmvBP171Ltz4Ci6q-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="bPhsAExS4dFbKCZO629r-98" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Registra en la bitácora el mensaje de respuesta&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
+        <mxCell id="bPhsAExS4dFbKCZO629r-98" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Actualiza Bitácora con el mensaje de respuesta&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
           <mxGeometry x="195.99999999999955" y="854" width="130" height="60" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="bPhsAExS4dFbKCZO629r-103" target="bPhsAExS4dFbKCZO629r-85" edge="1">
@@ -6822,32 +6822,26 @@
           <mxGeometry x="153" y="211" width="130" height="60" as="geometry" />
         </mxCell>
         <mxCell id="byXSXK4cCEQrSbxq-qTO-14" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Solicita Encriptación del mensaje&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
-          <mxGeometry x="196.00000000000045" y="1125" width="127" height="50" as="geometry" />
+          <mxGeometry x="196.00000000000045" y="1226" width="127" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-16" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="byXSXK4cCEQrSbxq-qTO-19" target="byXSXK4cCEQrSbxq-qTO-14" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="byXSXK4cCEQrSbxq-qTO-19" target="byXSXK4cCEQrSbxq-qTO-14" edge="1">
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="bPhsAExS4dFbKCZO629r-77" source="byXSXK4cCEQrSbxq-qTO-19" target="byXSXK4cCEQrSbxq-qTO-14">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="170" y="980" />
-              <mxPoint x="170" y="1150" />
+              <mxPoint x="170" y="1040" />
+              <mxPoint x="170" y="1251" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-18" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=16;" parent="byXSXK4cCEQrSbxq-qTO-17" vertex="1" connectable="0">
-          <mxGeometry x="-0.8602" y="2" relative="1" as="geometry">
-            <mxPoint x="1" as="offset" />
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-9" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="2_BUlmvBP171Ltz4Ci6q-8">
+          <mxGeometry x="-0.8544" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-19" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;¿Respuesta es aceptado?&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
-          <mxGeometry x="193.50000000000045" y="940" width="132.5" height="80" as="geometry" />
+        <mxCell id="byXSXK4cCEQrSbxq-qTO-19" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;¿Respuesta es rechazado?&lt;/font&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
+          <mxGeometry x="193.50000000000045" y="1000" width="132.5" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-21" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="byXSXK4cCEQrSbxq-qTO-22" target="byXSXK4cCEQrSbxq-qTO-14" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-22" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Registrar Transacción en pendiente&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
-          <mxGeometry x="199.50000000000045" y="1040" width="120" height="40" as="geometry" />
+        <mxCell id="byXSXK4cCEQrSbxq-qTO-22" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Solicita&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
+          <mxGeometry x="199.50000000000045" y="1115" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="byXSXK4cCEQrSbxq-qTO-15" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="byXSXK4cCEQrSbxq-qTO-19" target="byXSXK4cCEQrSbxq-qTO-22" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -6857,20 +6851,26 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-24" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Envió&amp;nbsp;Estado de Solicitud de pago&lt;/span&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
-          <mxGeometry x="31.5" y="1125" width="120" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="byXSXK4cCEQrSbxq-qTO-22" target="byXSXK4cCEQrSbxq-qTO-24" edge="1">
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-3" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="bPhsAExS4dFbKCZO629r-77" source="2_BUlmvBP171Ltz4Ci6q-1" target="byXSXK4cCEQrSbxq-qTO-19">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-25" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-77" vertex="1">
-          <mxGeometry x="76.5" y="1220" width="30" height="30" as="geometry" />
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="bPhsAExS4dFbKCZO629r-77" source="2_BUlmvBP171Ltz4Ci6q-1" target="2_BUlmvBP171Ltz4Ci6q-4">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-23" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-77" source="byXSXK4cCEQrSbxq-qTO-24" target="byXSXK4cCEQrSbxq-qTO-25" edge="1">
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-1" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Registrar Transacción en pendiente&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="bPhsAExS4dFbKCZO629r-77">
+          <mxGeometry x="200.00000000000045" y="939" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-4" value="&lt;span style=&quot;font-size: 11px;&quot;&gt;Envió&amp;nbsp;Estado de Solicitud de pago&lt;/span&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="bPhsAExS4dFbKCZO629r-77">
+          <mxGeometry x="24" y="1015" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-5" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;fontSize=16;" vertex="1" parent="bPhsAExS4dFbKCZO629r-77">
+          <mxGeometry x="69" y="1110" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="2_BUlmvBP171Ltz4Ci6q-6" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="bPhsAExS4dFbKCZO629r-77" source="2_BUlmvBP171Ltz4Ci6q-4" target="2_BUlmvBP171Ltz4Ci6q-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-112" value="HSM" style="swimlane;startSize=20;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-73" vertex="1">
-          <mxGeometry x="520" y="20" width="180" height="1340" as="geometry" />
+          <mxGeometry x="520" y="20" width="180" height="1380" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-113" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Desencripta y devuelve mensaje&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-112" vertex="1">
           <mxGeometry x="28.679999999999545" y="52" width="127" height="50" as="geometry" />
@@ -6879,23 +6879,23 @@
           <mxGeometry x="205" y="398" width="110" height="45" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-76" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-112" vertex="1">
-          <mxGeometry x="-475" y="1250" width="30" height="30" as="geometry" />
+          <mxGeometry x="-475" y="1310" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-129" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-112" source="bPhsAExS4dFbKCZO629r-100" target="bPhsAExS4dFbKCZO629r-76" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-100" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Devuelve mensaje de respuesta&lt;/font&gt;" style="html=1;whiteSpace=wrap;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-112" vertex="1">
-          <mxGeometry x="-182" y="1240" width="127" height="50" as="geometry" />
+          <mxGeometry x="-182" y="1300" width="127" height="50" as="geometry" />
         </mxCell>
         <mxCell id="byXSXK4cCEQrSbxq-qTO-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-112" source="bPhsAExS4dFbKCZO629r-114" target="bPhsAExS4dFbKCZO629r-100" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="92" y="1265" />
+              <mxPoint x="92" y="1325" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-114" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Encripta y devuelve mensaje&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-112" vertex="1">
-          <mxGeometry x="28.679999999999495" y="1127" width="127" height="50" as="geometry" />
+          <mxGeometry x="28.679999999999495" y="1228" width="127" height="50" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-116" value="" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" parent="bPhsAExS4dFbKCZO629r-73" source="bPhsAExS4dFbKCZO629r-78" target="bPhsAExS4dFbKCZO629r-113" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -6912,10 +6912,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-119" value="Autorizador" style="swimlane;startSize=20;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-73" vertex="1">
-          <mxGeometry x="700" y="20" width="155.65" height="1340" as="geometry" />
+          <mxGeometry x="700" y="20" width="155.65" height="1380" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-120" value="Api Core" style="swimlane;startSize=20;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-73" vertex="1">
-          <mxGeometry x="855.65" y="20" width="170" height="1340" as="geometry" />
+          <mxGeometry x="855.65" y="20" width="170" height="1380" as="geometry" />
         </mxCell>
         <mxCell id="bPhsAExS4dFbKCZO629r-121" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Obtiene datos de cliente receptor&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="bPhsAExS4dFbKCZO629r-120" vertex="1">
           <mxGeometry x="28.499999999999524" y="485" width="127" height="50" as="geometry" />
@@ -7124,7 +7124,7 @@
         <mxCell id="byXSXK4cCEQrSbxq-qTO-216" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="byXSXK4cCEQrSbxq-qTO-205" source="byXSXK4cCEQrSbxq-qTO-217" target="byXSXK4cCEQrSbxq-qTO-224" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="byXSXK4cCEQrSbxq-qTO-217" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Registra en la bitácora el mensaje de respuesta&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="byXSXK4cCEQrSbxq-qTO-205" vertex="1">
+        <mxCell id="byXSXK4cCEQrSbxq-qTO-217" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Actualiza bitácora con el mensaje de respuesta&lt;/font&gt;" style="whiteSpace=wrap;html=1;fontSize=16;" parent="byXSXK4cCEQrSbxq-qTO-205" vertex="1">
           <mxGeometry x="150.49999999999955" y="1087" width="130" height="60" as="geometry" />
         </mxCell>
         <mxCell id="byXSXK4cCEQrSbxq-qTO-218" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;" parent="byXSXK4cCEQrSbxq-qTO-205" source="byXSXK4cCEQrSbxq-qTO-220" edge="1">
