@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-06-05T17:40:46.700Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0" etag="QAeXG5nu2jS0bVf_Hvls" version="24.4.13" type="github" pages="12">
+<mxfile host="app.diagrams.net" modified="2024-06-05T17:41:34.958Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0" etag="cLinut9npMxOpK-54zRJ" version="24.4.13" type="github" pages="12">
   <diagram id="uCrft-sDl7chxPCTG-OC" name="D.S. Consulta Salida">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
@@ -8932,7 +8932,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="rUgwv1qNXQUUhnXc852h-6" value="" style="rounded=1;absoluteArcSize=1;arcSize=2;html=1;strokeColor=none;gradientColor=none;shadow=0;dashed=0;strokeColor=none;fontSize=12;fontColor=#9E9E9E;align=left;verticalAlign=top;spacing=10;spacingTop=-4;fillColor=#E0E0E0;" vertex="1" parent="1">
-          <mxGeometry x="85" y="700.18" width="955" height="30" as="geometry" />
+          <mxGeometry x="80" y="700.18" width="960" height="30" as="geometry" />
         </mxCell>
         <mxCell id="rUgwv1qNXQUUhnXc852h-7" value="Multiple Clientes&lt;br&gt;Solicitudes API&amp;nbsp;" style="rounded=1;absoluteArcSize=1;arcSize=2;html=1;strokeColor=none;gradientColor=none;shadow=0;dashed=0;fontSize=12;fontColor=#9E9E9E;align=left;verticalAlign=top;spacing=10;spacingTop=-4;fillColor=#F1F8E9;" vertex="1" parent="1">
           <mxGeometry x="101" y="118" width="105" height="512" as="geometry" />
