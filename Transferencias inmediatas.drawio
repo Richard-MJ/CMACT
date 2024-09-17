@@ -645,7 +645,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="5WrDnFzYTp5aPQ0x5mJH" name="D.S. Orden Transferencia">
-    <mxGraphModel dx="886" dy="435" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1772" dy="870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -665,7 +665,7 @@
           <mxGeometry x="50" y="220" width="10" height="190" as="geometry" />
         </mxCell>
         <mxCell id="b5rmsKMyaXifo_do6uwE-12" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="0O-ITjr2vh-I02z0uDzm-4" vertex="1">
-          <mxGeometry x="50" y="450" width="10" height="440" as="geometry" />
+          <mxGeometry x="50" y="450" width="10" height="420" as="geometry" />
         </mxCell>
         <mxCell id="0O-ITjr2vh-I02z0uDzm-6" value="CCE" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="751" y="70" width="100" height="1250" as="geometry" />
@@ -711,8 +711,8 @@
         </mxCell>
         <mxCell id="0O-ITjr2vh-I02z0uDzm-15" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;Presiona botón procesar&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry x="-0.0028" width="80" relative="1" as="geometry">
-            <mxPoint x="70" y="274" as="sourcePoint" />
-            <mxPoint x="199.5" y="274" as="targetPoint" />
+            <mxPoint x="70" y="278" as="sourcePoint" />
+            <mxPoint x="199.5" y="278" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
@@ -723,7 +723,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="0O-ITjr2vh-I02z0uDzm-17" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;GenerarLado()&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+        <mxCell id="0O-ITjr2vh-I02z0uDzm-17" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;GenerarLavado()&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry x="-0.0028" width="80" relative="1" as="geometry">
             <mxPoint x="200" y="249" as="sourcePoint" />
             <mxPoint x="329.5" y="249" as="targetPoint" />
@@ -1145,6 +1145,24 @@
             </Array>
             <mxPoint x="602" y="923.0000000000002" as="targetPoint" />
             <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0nCj4fwp8Y_udyT2wQsD-24" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;Retorna resultado impresion&lt;br&gt;&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0.7;exitY=0.976;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="b5rmsKMyaXifo_do6uwE-12" target="0O-ITjr2vh-I02z0uDzm-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="591" y="930" as="sourcePoint" />
+            <mxPoint x="460" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0nCj4fwp8Y_udyT2wQsD-25" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;Retorna resultado impresion&lt;br&gt;&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" target="0O-ITjr2vh-I02z0uDzm-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="452.5" y="934.0000000000001" as="sourcePoint" />
+            <mxPoint x="329.8939393939394" y="934.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="0nCj4fwp8Y_udyT2wQsD-26" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;Retorna respuesta en modal&lt;br&gt;&amp;nbsp;&quot;Operación exitosa&quot;&lt;/span&gt;" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="199.5" y="940" as="sourcePoint" />
+            <mxPoint x="70" y="940" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
