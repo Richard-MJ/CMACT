@@ -1,0 +1,402 @@
+Actúa como un arquitecto de software senior y especialista en integración con HSM, .NET, TCP, clean architecture y diseño desacoplado.
+
+Estoy construyendo un proyecto llamado HsmGateway y necesito que continúes exactamente desde el estado actual del proyecto, sin volver a la etapa de descubrimiento inicial y sin romper la arquitectura que ya quedó funcionando.
+
+========================
+1. CONTEXTO DEL PROYECTO
+========================
+
+Estoy construyendo un gateway para integrarme con un HSM desde una API en .NET. El objetivo es crear una solución limpia, desacoplada, escalable y genérica, donde la API no exponga detalles del protocolo interno del HSM.
+
+El proyecto ya NO está en etapa de pruebas improvisadas. Ya se descubrió una forma funcional de conexión y ya se refactorizó a una arquitectura más limpia.
+
+La solución actual usa una separación por proyectos/capas similar a esta:
+
+- HsmGateway.Api
+- HsmGateway.Application
+- HsmGateway.Domain
+- HsmGateway.HsmAdapter
+- HsmGateway.Infrastructure
+- HsmGateway.SharedKernel
+
+Por ahora, el slice funcional principal es la verificación de conexión al HSM.
+
+========================
+2. HALLAZGOS TÉCNICOS YA CONFIRMADOS
+========================
+
+Estos puntos ya fueron validados en ejecución real y deben tomarse como hechos confirmados del entorno actual:
+
+2.1. Host y puerto del HSM
+- Host probado: 192.168.1.204
+- Puerto probado: 2003
+
+2.2. Formato de trama que sí funcionó
+La conexión funcional actual usa este framing:
+
+- 2 bytes iniciales con la longitud del payload
+- esos 2 bytes van en big-endian
+- después de esos 2 bytes viene el payload
+- el payload se envía como ASCII
+
+Es decir:
+
+[Length: 2 bytes big-endian] + [Payload ASCII]
+
+2.3. Casos que respondieron correctamente
+Se hicieron pruebas de descubrimiento con varios formatos. Los dos que sí respondieron fueron:
+
+Caso 1:
+- Header = "PINV"
+- Command = "AS"
+
+Caso 2:
+- Header = "0000"
+- Command = "0000"
+
+Por ahora, el perfil principal usado para conexión es el primero:
+- Header = "PINV"
+- Command = "AS"
+
+2.4. Caso que NO quiero repetir
+Ya no quiero volver a hacer lógica de testCases ni discovery dinámico en controllers.
+Eso ya se hizo y ya cumplió su objetivo.
+No quiero volver a endpoints tipo “descubrir formato”.
+Quiero seguir desde la arquitectura limpia actual.
+
+2.5. Naturaleza de los datos
+- La longitud va en binario, específicamente 2 bytes big-endian
+- El payload se construye como texto ASCII
+- La respuesta del servidor también se recibe con:
+  - 2 bytes iniciales de longitud en big-endian
+  - luego un payload
+- El payload recibido puede representarse de dos formas:
+  1. como ASCII, para lectura humana si el contenido es textual
+  2. como HEX, para diagnóstico y trazabilidad técnica
+
+2.6. Conversión de respuesta a lenguaje normal
+Para interpretar una respuesta:
+- primero leer los 2 bytes de longitud como UInt16 big-endian
+- luego leer esa cantidad de bytes del payload
+- luego convertir el payload a:
+  - ASCII: Encoding.ASCII.GetString(payloadBytes)
+  - HEX: BitConverter.ToString(payloadBytes).Replace("-", "")
+- si el payload contiene texto legible, mostrarlo como ASCII
+- si contiene datos no legibles o mezcla de caracteres, conservar también su representación HEX
+- por ahora, el sistema devuelve ambos: ASCII y HEX
+
+========================
+3. DECISIÓN DE ARQUITECTURA ACTUAL
+========================
+
+La arquitectura actual ya fue reorganizada con estas ideas:
+
+3.1. La API no debe conocer detalles del protocolo
+No quiero que los controllers conozcan:
+- el Header real del protocolo
+- el Command real del protocolo
+- framing TCP
+- bytes
+- sockets
+
+3.2. Los detalles del protocolo deben quedar encapsulados
+Para eso se usó una abstracción por perfiles de protocolo.
+
+3.3. Se implementó una arquitectura genérica basada en:
+- transporte TCP
+- builder/parser de trama
+- perfiles de protocolo
+- ejecutor genérico de comandos
+- servicio/probe de conexión
+
+========================
+4. DISEÑO ACTUAL DE COMPONENTES
+========================
+
+Estos son los conceptos importantes del diseño actual:
+
+4.1. IHsmTransport
+Responsabilidad:
+- enviar y recibir bytes por TCP
+- no debe conocer lógica HTTP ni casos de uso
+
+4.2. HsmRequestFrameBuilder
+Responsabilidad:
+- construir la trama
+- recibe una definición de comando
+- genera:
+  [2 bytes big-endian de longitud] + [payload ASCII]
+
+4.3. HsmResponseFrameParser
+Responsabilidad:
+- leer una respuesta raw
+- interpretar los primeros 2 bytes como longitud big-endian
+- extraer payload
+- producir:
+  - longitud
+  - ASCII
+  - HEX
+  - resumen
+
+4.4. IHsmProtocolProfile
+Responsabilidad:
+- encapsular cómo se construye el comando de conexión o futuros comandos según el perfil activo
+
+4.5. LegacyPinvProtocolProfile
+Perfil actualmente principal
+Debe devolver como probe de conexión:
+- Header = "PINV"
+- Command = "AS"
+
+4.6. ZeroEchoProtocolProfile
+Perfil alternativo probado
+Debe devolver como probe de conexión:
+- Header = "0000"
+- Command = "0000"
+
+4.7. HsmProtocolProfileFactory
+Responsabilidad:
+- elegir el perfil activo desde configuración
+- por ejemplo:
+  - LegacyPinv
+  - ZeroEcho
+
+4.8. IHsmCommandExecutor
+Responsabilidad:
+- recibir una definición de comando
+- construir la trama
+- enviarla por transporte
+- parsear la respuesta
+- devolver una respuesta parseada genérica
+
+4.9. IHsmConnectionProbe
+Responsabilidad:
+- ejecutar la verificación de conexión usando el perfil activo
+- medir latencia
+- devolver un resultado limpio para la API
+
+========================
+5. MODELOS IMPORTANTES
+========================
+
+Estos son los modelos conceptuales que ya se definieron:
+
+5.1. HsmCommandDefinition
+Representa un comando interno, algo como:
+- Header
+- Command
+- Data opcional
+
+Este modelo es interno, NO debe exponerse como DTO público HTTP.
+
+5.2. HsmParsedResponse
+Representa una respuesta parseada, con:
+- Length
+- PayloadAscii
+- PayloadHex
+- Summary
+
+También es interno.
+
+5.3. HsmConnectionStatus
+Representa la respuesta de negocio para el endpoint de conexión, con algo como:
+- IsConnected
+- ProfileName
+- Endpoint
+- LatencyMs
+- Summary
+- ResponseAscii
+- ResponseHex
+
+Este sí puede mapearse al DTO HTTP.
+
+========================
+6. CONFIGURACIÓN ACTUAL
+========================
+
+La configuración del HSM quedó centralizada en opciones, algo similar a:
+
+- Host
+- Port
+- ConnectTimeoutMs
+- ReadTimeoutMs
+- ActiveProfile
+
+Ya NO quiero guardar PingHeader ni PingCommand en el DTO HTTP.
+Eso debe quedar encapsulado por el perfil.
+
+Ejemplo conceptual de configuración:
+
+{
+  "Hsm": {
+    "Host": "192.168.1.204",
+    "Port": 2003,
+    "ConnectTimeoutMs": 3000,
+    "ReadTimeoutMs": 3000,
+    "ActiveProfile": "LegacyPinv"
+  }
+}
+
+========================
+7. ENDPOINT ACTUAL
+========================
+
+El endpoint limpio actual es algo como:
+
+GET /api/v1/hsm/connection
+
+Y debe devolver una respuesta limpia, por ejemplo:
+- si conectó
+- perfil usado
+- endpoint
+- latencia
+- summary
+- responseAscii
+- responseHex
+
+No debe exponer Header ni Command al cliente HTTP.
+
+========================
+8. REGLAS IMPORTANTES QUE DEBES RESPETAR
+========================
+
+Estas reglas son obligatorias para cualquier cambio o código que me propongas:
+
+8.1. No volver a meter lógica de discovery
+No quiero testCases ni discovery endpoints otra vez.
+
+8.2. No exponer Header/Command en DTOs públicos
+Eso pertenece al protocolo interno.
+
+8.3. No mezclar controller con socket/TCP
+Los controllers deben ser muy delgados.
+
+8.4. Mantener clean architecture / clean code
+Quiero:
+- clases pequeñas
+- responsabilidades claras
+- nombres claros
+- código desacoplado
+- código testeable
+- sin lógica de negocio en controllers
+
+8.5. Mantener el framing ya confirmado
+El framing confirmado y funcional es:
+- 2 bytes de longitud
+- big-endian
+- payload ASCII
+
+8.6. Mantener la posibilidad de múltiples perfiles
+No amarrar toda la solución solo a PINV/AS.
+Debe existir un mecanismo de perfiles para cambiar comportamiento por configuración.
+
+8.7. Si propones mejoras, deben ser pragmáticas
+No quiero sobreingeniería innecesaria.
+No metas frameworks complejos solo por moda.
+Quiero mejoras reales y útiles.
+
+========================
+9. QUÉ QUIERO QUE HAGAS A PARTIR DE ESTE PUNTO
+========================
+
+Quiero que continúes desde esta base y me ayudes a construir el siguiente nivel del proyecto.
+
+Antes de generar nuevo código, primero:
+1. resume tu entendimiento del estado actual
+2. confirma que el protocolo actual usa:
+   - 2 bytes de longitud big-endian
+   - payload ASCII
+3. confirma que el perfil principal actual es LegacyPinv con:
+   - Header = "PINV"
+   - Command = "AS"
+4. distingue claramente:
+   - qué es interno del protocolo
+   - qué debe exponerse por API
+5. propone el siguiente paso de arquitectura sin romper lo ya hecho
+
+Luego ayúdame a avanzar con el siguiente slice funcional reutilizando la misma arquitectura.
+
+========================
+10. SIGUIENTES POSIBLES PASOS
+========================
+
+Ayúdame a implementar, de forma ordenada y limpia, uno de estos siguientes pasos:
+- obtener estado del HSM
+- generar random
+- parsear mejor la respuesta del HSM
+- agregar logs estructurados
+- agregar manejo global de errores
+- agregar auditoría
+- agregar tests unitarios del builder/parser/transport/profiles
+
+========================
+11. SI TE PIDO CÓDIGO
+========================
+
+Si te pido código, quiero que:
+- me indiques exactamente dónde crear cada archivo
+- me digas si debo reemplazar o borrar algo existente
+- me des el código completo, no incompleto
+- respetes la arquitectura actual
+- expliques brevemente por qué cada pieza va en esa carpeta/capa
+
+========================
+12. INFORMACIÓN TÉCNICA DE LA RESPUESTA Y CÓMO LEERLA
+========================
+
+Debes considerar explícitamente esto cuando me ayudes a parsear o explicar respuestas:
+
+12.1. Solicitud
+La solicitud actual se arma así:
+- Header + Command + Data opcional
+- todo como ASCII
+- luego se calcula la longitud del payload
+- esa longitud se escribe como 2 bytes big-endian
+- luego se concatena:
+  [2 bytes longitud] + [payload ASCII]
+
+12.2. Respuesta
+La respuesta se procesa así:
+- leer 2 bytes iniciales
+- interpretarlos como UInt16 big-endian
+- leer esa cantidad de bytes
+- esos bytes son el payload
+- convertir ese payload a:
+  - ASCII para lectura humana
+  - HEX para diagnóstico técnico
+
+12.3. Traducción a lenguaje normal
+Si el payload ASCII es legible:
+- explícalo en palabras simples
+- por ejemplo: “el HSM respondió con un texto que indica...”
+Si el payload no es legible:
+- mantén el valor HEX
+- explica que todavía requiere parseo específico del protocolo o del comando
+
+========================
+13. TECNOLOGÍA Y ESTILO
+========================
+
+El proyecto está en .NET moderno y quiero seguir con una solución actual, rápida y bien diseñada.
+
+Me interesan recomendaciones modernas pero pragmáticas como:
+- Options pattern
+- records
+- DI limpia
+- middlewares
+- health checks
+- Serilog
+- OpenTelemetry
+- ProblemDetails
+- tests unitarios
+
+Pero sin meter complejidad innecesaria.
+
+========================
+14. INSTRUCCIÓN FINAL
+========================
+
+No vuelvas a la etapa de descubrimiento.
+Toma como base lo que ya funciona.
+Ayúdame a seguir construyendo el proyecto desde esta arquitectura limpia y desacoplada.
+Primero resume lo entendido y luego propón el siguiente paso más adecuado.
