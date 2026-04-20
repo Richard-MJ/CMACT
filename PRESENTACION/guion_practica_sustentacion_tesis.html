@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guion de práctica - Sustentación de tesis</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --ink: #17324d;
+      --muted: #5f7288;
+      --line: #d9e3ee;
+      --brand: #124b97;
+      --brand-2: #1f6fd1;
+      --gold: #d59c2a;
+      --soft: #eef5ff;
+      --ok: #eaf8ef;
+      --shadow: 0 12px 30px rgba(19, 49, 77, 0.10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(31,111,209,.09), transparent 20%),
+        radial-gradient(circle at bottom left, rgba(213,156,42,.08), transparent 16%),
+        var(--bg);
+      color: var(--ink);
+    }
+    a { color: inherit; }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      min-height: 100vh;
+    }
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      background: linear-gradient(180deg, #0f3f80 0%, #124b97 100%);
+      color: #fff;
+      padding: 28px 20px;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0 0 10px;
+    }
+    .brand-sub {
+      color: rgba(255,255,255,.82);
+      font-size: .95rem;
+      line-height: 1.55;
+      margin: 0 0 18px;
+    }
+    .small-pill {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: .85rem;
+      margin-bottom: 18px;
+    }
+    .search-box input {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 13px 14px;
+      background: rgba(255,255,255,.92);
+      color: #0e2d52;
+      font-size: .95rem;
+      outline: none;
+    }
+    .toc {
+      margin-top: 18px;
+      display: grid;
+      gap: 8px;
+    }
+    .toc a {
+      display: block;
+      text-decoration: none;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.1);
+      color: #fff;
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: .92rem;
+      line-height: 1.35;
+      transition: .2s ease;
+    }
+    .toc a:hover {
+      transform: translateX(2px);
+      background: rgba(255,255,255,.15);
+    }
+    .toc span {
+      display: inline-block;
+      min-width: 26px;
+      font-weight: 800;
+      color: #ffd67e;
+    }
+    main {
+      padding: 28px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(18,75,151,1) 0%, rgba(31,111,209,1) 100%);
+      color: #fff;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -40px -40px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      max-width: 900px;
+    }
+    .hero p {
+      max-width: 920px;
+      color: rgba(255,255,255,.9);
+      line-height: 1.7;
+      font-size: 1.02rem;
+      margin: 0;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+    .tool {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+    .tool button {
+      border: none;
+      background: var(--soft);
+      color: var(--brand);
+      border-radius: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+    .slide-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .slide-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .badge {
+      display: inline-block;
+      background: var(--soft);
+      color: var(--brand);
+      border: 1px solid #cfe0f9;
+      font-weight: 800;
+      font-size: .84rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .slide-card h2 {
+      margin: 0;
+      font-size: 1.65rem;
+      line-height: 1.15;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      background: #f8fbff;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: .86rem;
+    }
+    .mini-link {
+      text-decoration: none;
+      color: var(--brand);
+      font-weight: 700;
+      font-size: .92rem;
+      white-space: nowrap;
+    }
+    .note-block, .script-block {
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      margin-top: 14px;
+    }
+    .teacher-note {
+      background: #fff8e8;
+      border: 1px solid #efdca8;
+    }
+    .script-block {
+      background: #f9fbfe;
+      border: 1px solid var(--line);
+    }
+    .citations {
+      background: var(--ok);
+      border: 1px solid #ccead6;
+    }
+    .note-block h4, .script-block h3 {
+      margin: 0 0 10px;
+      color: var(--ink);
+    }
+    .script-block p, .note-block p {
+      margin: 0 0 12px;
+      line-height: 1.85;
+      font-size: 1rem;
+      color: #244462;
+    }
+    .script-block p:last-child, .note-block p:last-child {
+      margin-bottom: 0;
+    }
+    .citations ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #2f5d40;
+      line-height: 1.8;
+    }
+    .footer-note {
+      margin-top: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 18px 20px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .hidden-citations .citations {
+      display: none;
+    }
+    .hidden-notes .teacher-note {
+      display: none;
+    }
+    @media (max-width: 1080px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      aside {
+        position: relative;
+        height: auto;
+      }
+      main {
+        padding: 18px;
+      }
+      .hero {
+        padding: 26px;
+      }
+      .slide-card {
+        padding: 20px;
+      }
+    }
+    @media print {
+      aside, .toolbar, .mini-link {
+        display: none !important;
+      }
+      .layout {
+        display: block;
+      }
+      main {
+        padding: 0;
+      }
+      body {
+        background: white;
+      }
+      .slide-card, .hero, .footer-note {
+        box-shadow: none;
+        border: 1px solid #bbb;
+        break-inside: avoid;
+        margin-bottom: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout" id="top">
+    <aside>
+      <div class="small-pill">Modo práctica de sustentación</div>
+      <h2 class="brand-title">Guion oral organizado por diapositiva</h2>
+      <p class="brand-sub">Diseñado para ensayar de forma más natural, con notas previas, guion sugerido y citas cuando corresponde.</p>
+
+      <div class="search-box">
+        <input id="searchInput" type="text" placeholder="Buscar diapositiva o tema..." />
+      </div>
+
+      <nav class="toc" id="toc">
+        <a href='#slide-1'><span>01</span> Portada</a><a href='#slide-2'><span>02</span> Introducción</a><a href='#slide-3'><span>03</span> Introducción</a><a href='#slide-4'><span>04</span> Problemática</a><a href='#slide-5'><span>05</span> Problemática</a><a href='#slide-6'><span>06</span> Formulación del problema</a><a href='#slide-7'><span>07</span> Objetivos de la investigación</a><a href='#slide-8'><span>08</span> Hipótesis general</a><a href='#slide-9'><span>09</span> Hipótesis específicas</a><a href='#slide-10'><span>10</span> Variables de estudio</a><a href='#slide-11'><span>11</span> Marco teórico</a><a href='#slide-12'><span>12</span> Antecedentes del trabajo de investigación</a><a href='#slide-13'><span>13</span> Bases teóricas I</a><a href='#slide-14'><span>14</span> Bases teóricas II</a><a href='#slide-15'><span>15</span> Marco metodológico</a><a href='#slide-16'><span>16</span> Marco y diseño de la investigación</a><a href='#slide-17'><span>17</span> Población y muestra</a><a href='#slide-18'><span>18</span> Técnicas e instrumentos</a><a href='#slide-19'><span>19</span> Resultados de la investigación</a><a href='#slide-20'><span>20</span> Resultados del experimento</a><a href='#slide-21'><span>21</span> Resultado del objetivo específico 1: tiempo de procesamiento</a><a href='#slide-22'><span>22</span> Resultado del objetivo específico 2: tasa de errores del procesamiento</a><a href='#slide-23'><span>23</span> Resultado del objetivo específico 3: costo operativo</a><a href='#slide-24'><span>24</span> Resultado del objetivo específico 4: disponibilidad operativa</a><a href='#slide-25'><span>25</span> Prueba de normalidad para hipótesis específica 1</a><a href='#slide-26'><span>26</span> Visualización de la hipótesis específica 1</a><a href='#slide-27'><span>27</span> Prueba de hipótesis para hipótesis específica 1</a><a href='#slide-28'><span>28</span> Tabla cruzada para hipótesis específica 2</a><a href='#slide-29'><span>29</span> Prueba de hipótesis para hipótesis específica 2</a><a href='#slide-30'><span>30</span> Prueba de normalidad para hipótesis específica 3</a><a href='#slide-31'><span>31</span> Visualización de la hipótesis específica 3</a><a href='#slide-32'><span>32</span> Prueba de hipótesis para hipótesis específica 3</a><a href='#slide-33'><span>33</span> Tabla cruzada para hipótesis específica 4</a><a href='#slide-34'><span>34</span> Prueba de hipótesis para hipótesis específica 4</a><a href='#slide-35'><span>35</span> Aplicación de la tecnología</a><a href='#slide-36'><span>36</span> Servicio de transferencias interbancarias inmediatas</a><a href='#slide-37'><span>37</span> App móvil – servicio de transferencias interbancarias inmediatas</a><a href='#slide-38'><span>38</span> Arquitectura del servicio de transferencias interbancarias inmediatas</a><a href='#slide-39'><span>39</span> Discusión</a><a href='#slide-40'><span>40</span> Discusión con otras investigaciones</a><a href='#slide-41'><span>41</span> Conclusiones y recomendaciones</a><a href='#slide-42'><span>42</span> Conclusiones</a><a href='#slide-43'><span>43</span> Recomendaciones</a><a href='#slide-44'><span>44</span> Cierre / agradecimiento</a>
+      </nav>
+    </aside>
+
+    <main id="mainContent">
+      <section class="hero">
+        <h1>Guion interactivo para practicar tu sustentación de tesis</h1>
+        <p>
+          Este HTML está organizado para que puedas ensayar tu exposición diapositiva por diapositiva,
+          con una redacción más fluida y natural. La estructura se elaboró a partir de tu tesis y de tu
+          presentación de sustentación, priorizando especialmente la explicación de resultados,
+          interpretación y cierre argumentativo.
+        </p>
+      </section>
+
+      <div class="toolbar">
+        <div class="tool">Mostrar u ocultar ayudas:
+          <button id="toggleNotes">Ocultar notas previas</button>
+        </div>
+        <div class="tool">
+          <button id="toggleCitations">Ocultar citas</button>
+          <span>Útil para practicar sin distraerte</span>
+        </div>
+        <div class="tool">
+          <button onclick="window.print()">Imprimir / guardar en PDF</button>
+        </div>
+      </div>
+
+      <section class="grid" id="slidesGrid">
+        
+    <article class="slide-card" id="slide-1" data-title="portada" data-section="apertura">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 1</div>
+          <h2>Portada</h2>
+          <div class="meta">
+            <span>Apertura</span>
+            <span>Enfoque: Inicio formal de la sustentación</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Empieza con voz pausada, mirando al jurado. No leas el título demasiado rápido; úsalo para ubicar el tema y dar seguridad.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Buenas tardes. Con su venia, señores miembros del jurado, voy a sustentar mi tesis titulada “Impacto de la integración de un API REST en el proceso de transferencias interbancarias en la Caja Municipal de Ahorro y Crédito de Tacna, 2025”. Mi nombre es Richard Walter Mamani Jimenez y este trabajo se presenta para optar el título profesional de Ingeniero en Informática y Sistemas.</p><p>A lo largo de esta exposición voy a mostrar el problema que motivó la investigación, el sustento teórico y metodológico, los resultados obtenidos y, finalmente, las conclusiones y recomendaciones derivadas del estudio.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-2" data-title="introducción" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 2</div>
+          <h2>Introducción</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Transición al contexto general</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Haz una transición breve. Esta diapositiva no se explica mucho; sirve para ordenar tu exposición.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para iniciar, presentaré brevemente el contexto general en el que se desarrolla esta investigación.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-3" data-title="introducción" data-section="contexto">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 3</div>
+          <h2>Introducción</h2>
+          <div class="meta">
+            <span>Contexto</span>
+            <span>Enfoque: Panorama del problema tecnológico y financiero</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí conviene sonar natural y cercano. La idea es que el jurado entienda por qué este tema sí es relevante hoy.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En los últimos años, el sector financiero ha venido enfrentando una exigencia cada vez mayor: ofrecer servicios más rápidos, más seguros y más accesibles para los usuarios. En ese escenario, las APIs se han convertido en una pieza clave, porque permiten integrar sistemas y automatizar operaciones críticas de manera más eficiente.</p><p>Uno de los servicios donde esto se vuelve más evidente es en las transferencias interbancarias inmediatas. Cuando un cliente puede disponer de su dinero casi al instante, mejora su experiencia, aumenta su confianza en la entidad y percibe un servicio moderno. Sin embargo, la Caja Tacna todavía operaba con un esquema tradicional, basado en archivos planos y procesamiento por lotes, lo que generaba demoras y limitaciones operativas.</p><p>A partir de esta realidad surge la necesidad de evaluar si la integración de un API REST realmente genera un impacto positivo en el proceso de transferencias interbancarias.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-4" data-title="problemática" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 4</div>
+          <h2>Problemática</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Ingreso al problema de investigación</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Antes de hablar, puedes decir: “Ahora paso a la problemática que da origen al estudio”.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>A continuación, presentaré la problemática que motivó esta investigación.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-5" data-title="problemática" data-section="problema central">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 5</div>
+          <h2>Problemática</h2>
+          <div class="meta">
+            <span>Problema central</span>
+            <span>Enfoque: Brecha operativa y regulatoria</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>No enumeres solo los puntos. Únelos con lógica causa–efecto.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>La problemática parte de una situación concreta: la Caja Municipal de Ahorro y Crédito de Tacna no ofrecía transferencias interbancarias inmediatas. Esto significaba que el proceso tradicional seguía dependiendo de una lógica por lotes, y como consecuencia el cliente debía esperar entre uno y dos días para disponer efectivamente de su dinero.</p><p>Esta situación no solo afectaba la experiencia del usuario. También impactaba en la competitividad de la entidad y en su imagen de modernización tecnológica frente a otras instituciones que sí contaban con servicios en tiempo real.</p><p>Además, el contexto regulatorio también presionaba el cambio. El Banco Central de Reserva del Perú exige interoperabilidad, continuidad, calidad del servicio y atención estandarizada de incidentes. Por eso, la integración de un API REST no se plantea solo como una mejora técnica, sino también como una respuesta tecnológica y regulatoria.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-6" data-title="formulación del problema" data-section="preguntas de investigación">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 6</div>
+          <h2>Formulación del problema</h2>
+          <div class="meta">
+            <span>Preguntas de investigación</span>
+            <span>Enfoque: Pregunta general y específicas</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí no conviene leer textual toda la diapositiva si estás corto de tiempo. Resume y luego resalta las cuatro dimensiones.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>A partir de esa problemática se formuló como problema general determinar cuál es el impacto de la integración de un API REST en el proceso de transferencias interbancarias en la Caja Municipal de Ahorro y Crédito de Tacna durante el año 2025.</p><p>De este problema general se desprenden cuatro problemas específicos, orientados a evaluar el impacto de la integración en dimensiones concretas del proceso: el tiempo de procesamiento, la tasa de errores, el costo operativo y la disponibilidad operativa.</p><p>Estas cuatro dimensiones permiten analizar el efecto del cambio tecnológico de una manera integral, es decir, no solo viendo rapidez, sino también confiabilidad, costo y flexibilidad del servicio.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-7" data-title="objetivos de la investigación" data-section="objetivos">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 7</div>
+          <h2>Objetivos de la investigación</h2>
+          <div class="meta">
+            <span>Objetivos</span>
+            <span>Enfoque: Correspondencia con los problemas</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Marca que los objetivos mantienen coherencia directa con los problemas formulados.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En coherencia con la formulación del problema, el objetivo general fue determinar el impacto de la integración de un API REST en el proceso de transferencias interbancarias en la Caja Municipal de Ahorro y Crédito de Tacna, 2025.</p><p>Asimismo, se plantearon cuatro objetivos específicos: determinar el impacto de la integración en el tiempo de procesamiento, en la tasa de errores del procesamiento, en el costo operativo y en la disponibilidad operativa.</p><p>Esta estructura permitió que todo el estudio mantuviera una línea clara entre problema, objetivo, medición y prueba de hipótesis.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-8" data-title="hipótesis general" data-section="hipótesis">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 8</div>
+          <h2>Hipótesis general</h2>
+          <div class="meta">
+            <span>Hipótesis</span>
+            <span>Enfoque: Supuesto principal del estudio</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Di esta parte con firmeza, porque aquí expresas la apuesta central de la investigación.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>La hipótesis general planteó que la integración de un API REST tiene un impacto significativamente positivo en el proceso de transferencias interbancarias en la Caja Municipal de Ahorro y Crédito de Tacna.</p><p>En otras palabras, el estudio parte de la idea de que la incorporación de esta tecnología no solo moderniza el servicio, sino que además mejora de manera medible el comportamiento del proceso.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-9" data-title="hipótesis específicas" data-section="hipótesis derivadas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 9</div>
+          <h2>Hipótesis específicas</h2>
+          <div class="meta">
+            <span>Hipótesis derivadas</span>
+            <span>Enfoque: Efectos esperados por indicador</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>No las leas una por una de forma plana. Agrúpalas y remarca qué se esperaba mejorar o reducir.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>De la hipótesis general se derivaron cuatro hipótesis específicas. La primera sostuvo que el API REST mejora significativamente el tiempo de procesamiento. La segunda, que reduce significativamente la tasa de errores. La tercera, que reduce significativamente el costo operativo. Y la cuarta, que mejora significativamente la disponibilidad operativa del proceso.</p><p>Estas hipótesis permitieron contrastar, con evidencia estadística, cuáles efectos sí se producían luego de la integración y cuáles no mostraban una diferencia estadísticamente significativa.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-10" data-title="variables de estudio" data-section="operacionalización">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 10</div>
+          <h2>Variables de estudio</h2>
+          <div class="meta">
+            <span>Operacionalización</span>
+            <span>Enfoque: Variable independiente y dependiente</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí explica la lógica, no toda la tabla. Lo importante es que el jurado vea qué mediste y con qué.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>La variable independiente fue la integración de un API REST, entendida como una interfaz tecnológica que permite la comunicación estandarizada entre sistemas. Esta variable se evaluó a través de dimensiones como disponibilidad, desempeño, escalabilidad, capacidad y fiabilidad, utilizando registros de monitoreo y pruebas de carga y estrés.</p><p>La variable dependiente fue el proceso de transferencias interbancarias, entendido como el conjunto de actividades y validaciones necesarias para mover fondos entre entidades financieras. Esta variable se midió a través de cuatro indicadores principales: tiempo de procesamiento, tasa de errores del procesamiento, costo operativo y disponibilidad operativa, utilizando registros transaccionales.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Carneiro y Schmelmer (2016)</li><li>Dumas et al. (2018)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-11" data-title="marco teórico" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 11</div>
+          <h2>Marco teórico</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Ingreso al sustento conceptual</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Transición breve para no cortar el ritmo.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Seguidamente, presentaré el marco teórico que sustenta la investigación.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-12" data-title="antecedentes del trabajo de investigación" data-section="antecedentes">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 12</div>
+          <h2>Antecedentes del trabajo de investigación</h2>
+          <div class="meta">
+            <span>Antecedentes</span>
+            <span>Enfoque: Trabajos previos relacionados</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Menciona el aporte de cada antecedente y luego ciérralo con una idea integradora.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Entre los antecedentes revisados, Jaramillo Arboleda, en 2024, diseñó un API RESTful para mejorar la fiabilidad del proceso de autorización y envío de comprobantes electrónicos, encontrando mejoras en tolerancia a fallos, seguridad y confiabilidad operativa.</p><p>Por otro lado, Salas Berríos y Aguero Barreto, en 2023, desarrollaron un sistema para automatizar el cuadre diario de transferencias interbancarias inmediatas en bancos del Perú, logrando un tiempo máximo de proceso batch de 95,65 segundos y evidenciando mejoras en rapidez y precisión.</p><p>Asimismo, Rojas Barraza, en 2022, abordó la implementación de pruebas para API REST en una entidad bancaria, demostrando que las pruebas estructuradas fortalecen la eficiencia operativa y la confiabilidad del servicio digital.</p><p>En conjunto, estos antecedentes respaldan la idea de que las APIs REST son útiles en entornos críticos y regulados, y sirven como soporte para estudiar su impacto en el caso específico de la Caja Tacna.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Jaramillo Arboleda (2024)</li><li>Salas Berríos y Aguero Barreto (2023)</li><li>Rojas Barraza (2022)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-13" data-title="bases teóricas i" data-section="fundamento conceptual">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 13</div>
+          <h2>Bases teóricas I</h2>
+          <div class="meta">
+            <span>Fundamento conceptual</span>
+            <span>Enfoque: Arquitectura API REST y pagos interoperables</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Explica primero el concepto y luego su relación con tu caso.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Desde el punto de vista teórico, la arquitectura de software y los servicios web API REST permiten organizar y comunicar componentes de forma estable, independiente y eficiente. En particular, la API REST ofrece una interfaz uniforme, ligera y sin estado, lo que favorece la rapidez y la resistencia a fallos en operaciones en tiempo real.</p><p>Además, el estudio se enmarca en el contexto del sistema peruano de pagos inmediatos interoperables. Este marco normativo y tecnológico busca que las transferencias se realicen con eficiencia, seguridad e inmediatez, sustentadas en la regulación del BCRP y en la plataforma IPS.</p><p>Por ello, la integración tecnológica analizada en esta tesis no solo tiene sustento técnico, sino también un claro sustento regulatorio.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Carneiro y Schmelmer (2016)</li><li>BCRP (2024)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-14" data-title="bases teóricas ii" data-section="fundamento conceptual">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 14</div>
+          <h2>Bases teóricas II</h2>
+          <div class="meta">
+            <span>Fundamento conceptual</span>
+            <span>Enfoque: Liquidación en tiempo real y desempeño de procesos</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí conviene conectar la teoría con tus indicadores.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Otra base teórica importante es la de los sistemas de compensación y liquidación en tiempo real. Este enfoque plantea que cada transferencia se procesa y liquida de forma individual e inmediata, a diferencia del procesamiento por lotes. Eso permite disponibilidad continua y reduce la incertidumbre sobre cuándo el dinero estará efectivamente disponible.</p><p>También se consideró la teoría del desempeño de procesos, conocida como el cuadrángulo del diablo, que indica que el rendimiento de un proceso debe evaluarse equilibrando tiempo, costo, calidad y flexibilidad.</p><p>Precisamente por eso, en esta investigación no se analizó solo la velocidad del proceso, sino también el costo, la tasa de errores y la disponibilidad operativa.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>BCRP (2024)</li><li>Dumas et al. (2018)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-15" data-title="marco metodológico" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 15</div>
+          <h2>Marco metodológico</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Ingreso al diseño del estudio</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Respira y cambia el tono a uno más técnico, pero claro.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Ahora paso al marco metodológico de la investigación.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-16" data-title="marco y diseño de la investigación" data-section="metodología">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 16</div>
+          <h2>Marco y diseño de la investigación</h2>
+          <div class="meta">
+            <span>Metodología</span>
+            <span>Enfoque: Tipo, nivel y diseño</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí es importante mostrar dominio metodológico sin sonar memorizado.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>La investigación fue de tipo aplicada, porque buscó resolver un problema concreto dentro de una institución real. Su nivel fue explicativo, ya que no solo describió el fenómeno, sino que buscó determinar el efecto de una variable sobre otra.</p><p>En cuanto al diseño, se empleó un enfoque cuasi experimental con comparación pretest y postest en grupos no equivalentes. Esto permitió analizar el comportamiento del proceso antes y después de la integración del API REST, sin asignación aleatoria, pero manteniendo un criterio comparativo sólido.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Vara Horna (2015)</li><li>Hernández-Sampieri et al. (2014)</li><li>Hernández-Sampieri y Mendoza (2018)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-17" data-title="población y muestra" data-section="metodología">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 17</div>
+          <h2>Población y muestra</h2>
+          <div class="meta">
+            <span>Metodología</span>
+            <span>Enfoque: Tamaño y composición de la muestra</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí sí menciona las cantidades, porque refuerzan la solidez del análisis.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>La población general estuvo conformada por 14 849 registros de transferencias interbancarias generados durante el año 2025. De ese universo se definió una población accesible de 10 885 transferencias que cumplían con criterios de integridad de datos, trazabilidad técnica y confirmación operativa.</p><p>La muestra se estructuró en dos grupos. El grupo de control estuvo conformado por 5 106 transferencias interbancarias diferidas, que representan el método convencional. El grupo experimental estuvo constituido por 5 779 transferencias interbancarias inmediatas procesadas mediante la arquitectura API REST.</p><p>Esta distribución permitió comparar ambos escenarios con base en registros institucionales reales.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Arias (2012)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-18" data-title="técnicas e instrumentos" data-section="metodología">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 18</div>
+          <h2>Técnicas e instrumentos</h2>
+          <div class="meta">
+            <span>Metodología</span>
+            <span>Enfoque: Cómo se recolectaron los datos</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Haz énfasis en que trabajaste con evidencia real del sistema.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para la recolección de datos se emplearon tres instrumentos principales. Primero, los registros de monitoreo, que permitieron evaluar la disponibilidad y el rendimiento del sistema. Segundo, los registros transaccionales, que sirvieron para analizar tiempos de procesamiento, errores y resultados de cada operación. Y tercero, las pruebas de carga y estrés, que permitieron medir el comportamiento del API REST bajo alta demanda.</p><p>El uso combinado de estos instrumentos permitió analizar tanto el funcionamiento técnico del servicio como el efecto real sobre el proceso transaccional.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Sommerville (2011)</li><li>Newman (2021)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-19" data-title="resultados de la investigación" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 19</div>
+          <h2>Resultados de la investigación</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Ingreso a resultados y pruebas</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Este es un punto clave. Haz una pausa breve y anuncia que ahora mostrarás la evidencia empírica.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>A continuación, presentaré los resultados obtenidos en el experimento y en la prueba de hipótesis.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-20" data-title="resultados del experimento" data-section="resultados">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 20</div>
+          <h2>Resultados del experimento</h2>
+          <div class="meta">
+            <span>Resultados</span>
+            <span>Enfoque: Comparación general entre ambos procesos</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>No te quedes en lo visual. Explica qué se está comparando.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En esta parte se comparan dos condiciones claramente diferenciadas. Por un lado, el proceso tradicional de transferencias por lotes, correspondiente al pretest. Y por otro lado, el proceso con integración del API REST, correspondiente al postest.</p><p>La idea central es observar cómo cambia el comportamiento del proceso cuando se pasa de un esquema diferido a un esquema inmediato. A partir de aquí se evalúan uno por uno los indicadores definidos en la investigación.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-21" data-title="resultado del objetivo específico 1: tiempo de procesamiento" data-section="resultados">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 21</div>
+          <h2>Resultado del objetivo específico 1: tiempo de procesamiento</h2>
+          <div class="meta">
+            <span>Resultados</span>
+            <span>Enfoque: Rapidez del proceso</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Esta es una de las diapositivas más importantes. Explica primero el cambio en términos simples y luego da las cifras.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En el caso del tiempo de procesamiento, los resultados muestran una mejora muy marcada luego de la integración del API REST. En el pretest, correspondiente a las transferencias diferidas, el tiempo promedio fue de 23 830,98 segundos, es decir, aproximadamente 6 horas con 37 minutos. En el postest, correspondiente a las transferencias inmediatas, el promedio bajó a 729,60 segundos.</p><p>Ahora bien, más allá del promedio, la mediana es todavía más reveladora. En el pretest fue de 10 515,04 segundos, mientras que en el postest descendió a 0,63 segundos. Esto indica que en la operación típica el cambio fue sustancial, y que el nuevo proceso permitió que la mayoría de transferencias se resuelvan prácticamente en tiempo real.</p><p>En términos de exposición, aquí conviene remarcar que el API REST no produjo una mejora marginal, sino un cambio operativo profundo en la velocidad del servicio.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-22" data-title="resultado del objetivo específico 2: tasa de errores del procesamiento" data-section="resultados">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 22</div>
+          <h2>Resultado del objetivo específico 2: tasa de errores del procesamiento</h2>
+          <div class="meta">
+            <span>Resultados</span>
+            <span>Enfoque: Confiabilidad del proceso</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí no digas que ‘mejoró mucho’ porque estadísticamente no fue significativo. La idea correcta es: se mantuvo confiable y con errores bajos.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Respecto a la tasa de errores del procesamiento, se observa que en ambos periodos el servicio mantuvo niveles altos de aceptación. En el pretest se registró un 98,70 por ciento de operaciones aceptadas y un 1,30 por ciento de rechazadas. En el postest, las aceptadas fueron 99,00 por ciento y las rechazadas 1,00 por ciento.</p><p>Desde una lectura operativa, esto quiere decir que el proceso ya era confiable y que, después de la integración, esa confiabilidad se mantuvo e incluso mostró una ligera reducción en los rechazos. Sin embargo, esta diferencia todavía debe ser evaluada estadísticamente para saber si puede atribuirse realmente al cambio tecnológico.</p><p>Entonces, el mensaje principal de esta diapositiva no es que el error desaparece, sino que el servicio integrado conserva una alta confiabilidad.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-23" data-title="resultado del objetivo específico 3: costo operativo" data-section="resultados">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 23</div>
+          <h2>Resultado del objetivo específico 3: costo operativo</h2>
+          <div class="meta">
+            <span>Resultados</span>
+            <span>Enfoque: Eficiencia económica</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Explica el beneficio institucional. Esta diapositiva conecta muy bien con gestión y sostenibilidad.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En relación con el costo operativo, los resultados también fueron favorables. En el pretest, el costo promedio fue de 9,99 soles por operación, mientras que en el postest descendió a 3,79 soles.</p><p>Esto evidencia que la integración del API REST no solo hace más rápido el proceso, sino también más eficiente desde el punto de vista económico. Es decir, la modernización tecnológica no genera únicamente beneficio para el cliente, sino también para la institución, porque reduce el costo promedio asociado a cada transferencia.</p><p>En términos prácticos, este hallazgo es importante porque demuestra que la transformación digital puede mejorar el servicio y, al mismo tiempo, optimizar el uso de recursos operativos.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-24" data-title="resultado del objetivo específico 4: disponibilidad operativa" data-section="resultados">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 24</div>
+          <h2>Resultado del objetivo específico 4: disponibilidad operativa</h2>
+          <div class="meta">
+            <span>Resultados</span>
+            <span>Enfoque: Flexibilidad del servicio</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aclara qué significa este indicador para que el jurado no lo interprete solo como uptime técnico.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En cuanto a la disponibilidad operativa, este indicador se evaluó a partir del registro de transferencias en días no hábiles. En el pretest, solo el 7,70 por ciento de operaciones se registraba en días no hábiles. En el postest, ese porcentaje subió a 30,60 por ciento.</p><p>Esto es importante porque refleja una mayor flexibilidad del servicio. No se trata únicamente de que el sistema esté encendido, sino de que el proceso permita operar fuera del horario tradicional con una mayor capacidad de atención.</p><p>Por tanto, la integración del API REST amplió la disponibilidad práctica del servicio para el cliente y fortaleció la continuidad operativa del proceso.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-25" data-title="prueba de normalidad para hipótesis específica 1" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 25</div>
+          <h2>Prueba de normalidad para hipótesis específica 1</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Selección del estadístico para tiempo</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Esta parte explícalo sencillo. No necesitas profundizar demasiado en estadística.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Antes de contrastar la primera hipótesis, se verificó si los datos del tiempo de procesamiento seguían una distribución normal. Para ello se aplicó la prueba de Kolmogórov–Smirnov.</p><p>Los resultados mostraron valores de significancia menores a 0,05 tanto en el pretest como en el postest. Por ello, se concluyó que los datos no seguían una distribución normal.</p><p>En consecuencia, se optó por una prueba no paramétrica, específicamente la U de Mann–Whitney, que era la más adecuada para comparar dos grupos independientes en estas condiciones.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Field (2013)</li><li>Nachar (2008)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-26" data-title="visualización de la hipótesis específica 1" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 26</div>
+          <h2>Visualización de la hipótesis específica 1</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Distribución del tiempo en ambos grupos</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí no recargues de detalle. Solo ayuda a interpretar visualmente lo anterior.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En esta diapositiva se presenta la distribución visual del tiempo de procesamiento en ambos grupos. Lo que interesa destacar es que el comportamiento de las transferencias diferidas y de las inmediatas es claramente distinto.</p><p>Visualmente se aprecia que el esquema tradicional concentra tiempos mucho mayores y más dispersos, mientras que el esquema con API REST concentra una proporción importante de operaciones en tiempos mucho más bajos.</p><p>Esta representación gráfica refuerza lo que ya sugerían las medidas descriptivas: el cambio tecnológico produjo un desplazamiento importante hacia un procesamiento mucho más rápido.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-27" data-title="prueba de hipótesis para hipótesis específica 1" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 27</div>
+          <h2>Prueba de hipótesis para hipótesis específica 1</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Contraste del tiempo de procesamiento</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí debes decir el resultado con claridad: se rechaza la nula y se acepta la alternativa.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Al aplicar la prueba U de Mann–Whitney se obtuvo un valor p menor a 0,05, específicamente menor a 0,001. Por ello, se rechaza la hipótesis nula y se acepta la hipótesis alternativa.</p><p>En términos simples, esto significa que la integración del API REST sí mejoró significativamente el tiempo de procesamiento de las transferencias interbancarias.</p><p>Este resultado confirma estadísticamente lo que ya se observaba en la comparación descriptiva: la mejora en rapidez no fue casual, sino un efecto real de la integración tecnológica.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-28" data-title="tabla cruzada para hipótesis específica 2" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 28</div>
+          <h2>Tabla cruzada para hipótesis específica 2</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Frecuencias de aceptadas y rechazadas</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Usa esta diapositiva como puente entre el resultado descriptivo y la prueba inferencial.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para la segunda hipótesis, la información se organizó mediante una tabla cruzada entre la condición del estudio y el estado de la transferencia. Esto permitió observar las frecuencias y proporciones de operaciones aceptadas y rechazadas tanto en el pretest como en el postest.</p><p>Como se aprecia, la diferencia entre ambos grupos existe, pero es pequeña: 1,30 por ciento de rechazadas en el pretest frente a 1,00 por ciento en el postest.</p><p>El siguiente paso fue verificar si esa diferencia pequeña era suficiente como para considerarla estadísticamente significativa.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-29" data-title="prueba de hipótesis para hipótesis específica 2" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 29</div>
+          <h2>Prueba de hipótesis para hipótesis específica 2</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Contraste de la tasa de errores</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>No caigas en contradicción. Aquí el resultado correcto es: no hay evidencia suficiente para afirmar una reducción significativa.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para esta hipótesis se aplicó la prueba Chi-cuadrado de Pearson. El valor p obtenido fue 0,132, es decir, mayor a 0,05.</p><p>Por ello, no existe evidencia estadística suficiente para rechazar la hipótesis nula. En otras palabras, aunque la tasa de errores disminuyó ligeramente, esa reducción no fue estadísticamente significativa.</p><p>Sin embargo, este resultado no es negativo. Lo que demuestra es que la integración del API REST mantuvo la confiabilidad del proceso en niveles altos, con más del 98 por ciento de operaciones aceptadas en ambos periodos.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-30" data-title="prueba de normalidad para hipótesis específica 3" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 30</div>
+          <h2>Prueba de normalidad para hipótesis específica 3</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Selección del estadístico para costo</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Puedes incluso decir: “Aquí el procedimiento estadístico fue similar al caso del tiempo”.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para contrastar la tercera hipótesis, primero se verificó la normalidad del indicador costo operativo mediante la prueba de Kolmogórov–Smirnov.</p><p>Al igual que en el caso del tiempo de procesamiento, se encontraron valores de significancia menores a 0,05, por lo que se concluyó que los datos no seguían una distribución normal.</p><p>En consecuencia, también se optó por la prueba no paramétrica U de Mann–Whitney para comparar los costos entre el pretest y el postest.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Field (2013)</li><li>Nachar (2008)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-31" data-title="visualización de la hipótesis específica 3" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 31</div>
+          <h2>Visualización de la hipótesis específica 3</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Distribución del costo en ambos grupos</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Explica el sentido general del gráfico, no sus detalles técnicos.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Esta diapositiva muestra la distribución visual del costo operativo en las transferencias diferidas y en las transferencias inmediatas.</p><p>De manera general, se observa que en el postest la distribución del costo tiende a desplazarse hacia valores menores, lo cual es consistente con la reducción del costo promedio ya presentada.</p><p>Por ello, esta visualización respalda gráficamente que el proceso integrado no solo es más rápido, sino también económicamente más eficiente.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-32" data-title="prueba de hipótesis para hipótesis específica 3" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 32</div>
+          <h2>Prueba de hipótesis para hipótesis específica 3</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Contraste del costo operativo</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Remarca que aquí sí hubo significancia estadística.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Al aplicar la prueba U de Mann–Whitney al indicador costo operativo, se obtuvo un valor p menor a 0,05, también menor a 0,001.</p><p>Por ello, se rechaza la hipótesis nula y se acepta la hipótesis alternativa, concluyendo que la integración del API REST redujo significativamente el costo operativo del proceso de transferencias interbancarias.</p><p>Este resultado refuerza la idea de que la transformación digital bien implementada no solo mejora la experiencia del usuario, sino que también genera eficiencia económica para la institución.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-33" data-title="tabla cruzada para hipótesis específica 4" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 33</div>
+          <h2>Tabla cruzada para hipótesis específica 4</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Frecuencias de disponibilidad operativa</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aclara otra vez que el criterio es la operación en días no hábiles.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para la cuarta hipótesis, se elaboró una tabla cruzada entre la condición del estudio y la variable de registro en día no hábil. Con ello se buscó observar la variación de la disponibilidad operativa entre el esquema tradicional y el esquema integrado.</p><p>Los resultados muestran una diferencia marcada: en el pretest solo 394 operaciones fueron registradas en día no hábil, mientras que en el postest esa cifra subió a 1 768.</p><p>Esto ya anticipa que el cambio operativo fue importante y que el servicio ganó una mayor capacidad de funcionamiento fuera del patrón tradicional.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-34" data-title="prueba de hipótesis para hipótesis específica 4" data-section="pruebas estadísticas">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 34</div>
+          <h2>Prueba de hipótesis para hipótesis específica 4</h2>
+          <div class="meta">
+            <span>Pruebas estadísticas</span>
+            <span>Enfoque: Contraste de la disponibilidad operativa</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí conviene relacionar el resultado con el beneficio directo al cliente.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para contrastar esta hipótesis se utilizó nuevamente la prueba Chi-cuadrado de Pearson. El valor p obtenido fue menor a 0,05, específicamente menor a 0,001.</p><p>Por ello, se rechaza la hipótesis nula y se acepta la hipótesis alternativa. Esto permite concluir que la integración del API REST mejoró significativamente la disponibilidad operativa del proceso.</p><p>Dicho en términos más cercanos al usuario, el servicio pasó a ofrecer una mayor posibilidad de operar fuera del esquema rígido anterior, lo que incrementa la flexibilidad y la oportunidad de atención.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-35" data-title="aplicación de la tecnología" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 35</div>
+          <h2>Aplicación de la tecnología</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Ingreso al aporte tecnológico</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Cambia el enfoque: ya no hablas solo de resultados, sino de la solución implementada.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Después de presentar los resultados, paso a mostrar la aplicación concreta de la tecnología implementada.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-36" data-title="servicio de transferencias interbancarias inmediatas" data-section="aplicación tecnológica">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 36</div>
+          <h2>Servicio de transferencias interbancarias inmediatas</h2>
+          <div class="meta">
+            <span>Aplicación tecnológica</span>
+            <span>Enfoque: Propósito institucional de la solución</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Esta diapositiva debe sonar como aporte real y no solo académico.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>La solución implementada consistió en un servicio de transferencias interbancarias inmediatas desarrollado como un API REST e incorporado dentro de la infraestructura institucional de la Caja Tacna.</p><p>Su propósito fue modernizar el proceso, mejorar la atención al cliente mediante menores tiempos de espera, mayor trazabilidad y mejor control del flujo transaccional. Al mismo tiempo, contribuye al cumplimiento de las regulaciones del BCRP en interoperabilidad, continuidad, calidad y seguridad del servicio.</p><p>Por tanto, el aporte de la investigación no quedó solo en la medición del impacto, sino también en la aplicación concreta de una solución tecnológica dentro de la organización.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-37" data-title="app móvil – servicio de transferencias interbancarias inmediatas" data-section="aplicación tecnológica">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 37</div>
+          <h2>App móvil – servicio de transferencias interbancarias inmediatas</h2>
+          <div class="meta">
+            <span>Aplicación tecnológica</span>
+            <span>Enfoque: Visualización funcional del servicio</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Describe lo que se ve: búsqueda de contacto, confirmación y resultado exitoso. Eso da más solidez a la exposición.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En esta diapositiva se puede observar la implementación del servicio desde la perspectiva del usuario. Se muestra el flujo en la aplicación móvil: primero la selección del contacto o destinatario, luego la pantalla de confirmación de la operación, y finalmente el resultado exitoso de la transferencia.</p><p>Esto evidencia que la integración del API REST no quedó limitada al backend, sino que se tradujo en una experiencia funcional para el cliente final, más ágil y con una secuencia operativa clara.</p><p>En otras palabras, la mejora tecnológica también se expresa en una mejor interacción del usuario con el servicio.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-38" data-title="arquitectura del servicio de transferencias interbancarias inmediatas" data-section="aplicación tecnológica">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 38</div>
+          <h2>Arquitectura del servicio de transferencias interbancarias inmediatas</h2>
+          <div class="meta">
+            <span>Aplicación tecnológica</span>
+            <span>Enfoque: Integración técnica de la solución</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>No expliques cada bloque del diagrama. Resume la lógica general del flujo y destaca seguridad, integración y monitoreo.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Este diagrama resume la arquitectura del servicio implementado. En términos generales, la solución articula los canales de atención, los componentes de negocio, el API Gateway, los servicios de transferencia, la base de datos, los mecanismos de monitoreo y el entorno de seguridad con módulo HSM.</p><p>Lo importante aquí es que la arquitectura fue diseñada para permitir integración, trazabilidad, seguridad y capacidad de despliegue en múltiples instancias. Es decir, no se trata solo de conectar sistemas, sino de hacerlo con una estructura capaz de sostener un servicio financiero crítico.</p><p>Por eso, esta arquitectura respalda técnicamente los resultados obtenidos en disponibilidad, rapidez y estabilidad operativa.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-39" data-title="discusión" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 39</div>
+          <h2>Discusión</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Ingreso al contraste académico</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Transición breve.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Seguidamente, presentaré la discusión de los resultados en contraste con otras investigaciones.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-40" data-title="discusión con otras investigaciones" data-section="discusión">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 40</div>
+          <h2>Discusión con otras investigaciones</h2>
+          <div class="meta">
+            <span>Discusión</span>
+            <span>Enfoque: Coincidencias y aporte propio</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Aquí debes resaltar qué aporta tu tesis frente a lo ya estudiado.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Los resultados de esta tesis guardan coherencia con investigaciones previas. Por ejemplo, Jaramillo Arboleda encontró que la implementación de un API REST mejora la tolerancia a fallos y la capacidad de recuperación del sistema, lo cual coincide con la idea de que estas arquitecturas fortalecen la confiabilidad operativa en procesos críticos.</p><p>Del mismo modo, estudios orientados a la optimización de procesos mediante APIs REST han mostrado mejoras en tiempo y eficiencia. En ese sentido, mi investigación coincide con esa evidencia, pero la amplía al ámbito financiero regulado, donde además de rapidez se exige continuidad, trazabilidad y seguridad.</p><p>Por ello, considero que el principal aporte de esta tesis es demostrar, con evidencia institucional real, que una API REST puede transformar un proceso de transferencias interbancarias dentro de una caja municipal, generando mejoras concretas en tiempo, costo y disponibilidad operativa.</p>
+      </div>
+
+      <div class='citations note-block'><h4>Citas útiles</h4><ul><li>Jaramillo Arboleda (2024)</li></ul></div>
+    </article>
+    
+    <article class="slide-card" id="slide-41" data-title="conclusiones y recomendaciones" data-section="separador">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 41</div>
+          <h2>Conclusiones y recomendaciones</h2>
+          <div class="meta">
+            <span>Separador</span>
+            <span>Enfoque: Ingreso al cierre</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Haz una pausa y baja un poco la velocidad para cerrar con claridad.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Finalmente, presento las conclusiones y recomendaciones de la investigación.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-42" data-title="conclusiones" data-section="cierre">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 42</div>
+          <h2>Conclusiones</h2>
+          <div class="meta">
+            <span>Cierre</span>
+            <span>Enfoque: Síntesis de hallazgos</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>No leas cada punto como lista. Conviértelo en una síntesis oral conectada.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Como primera conclusión, se determinó que la integración del API REST mejoró de forma muy importante el tiempo de procesamiento de las transferencias interbancarias. El proceso pasó de varias horas en el esquema anterior a tiempos mucho menores en el esquema integrado, con diferencia estadísticamente significativa.</p><p>En segundo lugar, la integración mantuvo la confiabilidad del proceso, ya que la tasa de errores siguió siendo baja en ambos periodos. Aunque hubo una ligera reducción de errores, esta no fue estadísticamente significativa.</p><p>En tercer lugar, se comprobó una reducción significativa del costo operativo promedio, lo cual hace el proceso más eficiente desde el punto de vista económico. Y, finalmente, se concluye que la integración del API REST mejoró la disponibilidad operativa del servicio, permitiendo registrar más transferencias en días no hábiles y dando a los clientes una mayor flexibilidad para operar.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-43" data-title="recomendaciones" data-section="cierre">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 43</div>
+          <h2>Recomendaciones</h2>
+          <div class="meta">
+            <span>Cierre</span>
+            <span>Enfoque: Acciones sugeridas para continuidad</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Son recomendaciones muy aterrizadas; dilo con tono propositivo.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>En cuanto a las recomendaciones, primero se propone mantener y monitorear de forma continua el sistema de transferencias inmediatas basado en API REST, para detectar oportunamente posibles fallas o degradaciones del servicio.</p><p>En segundo lugar, se recomienda capacitar al personal de tecnología, operaciones y atención al cliente en el uso del sistema, el manejo de errores y la atención de incidencias.</p><p>Una tercera recomendación es ampliar gradualmente esta arquitectura hacia otros procesos institucionales, como pagos, recaudaciones y otros servicios digitales. Finalmente, se recomienda evaluar periódicamente el costo operativo y la disponibilidad operativa del servicio, con el fin de seguir mejorando la eficiencia y la flexibilidad del proceso.</p>
+      </div>
+
+      
+    </article>
+    
+    <article class="slide-card" id="slide-44" data-title="cierre / agradecimiento" data-section="cierre">
+      <div class="slide-top">
+        <div>
+          <div class="badge">Diapositiva 44</div>
+          <h2>Cierre / agradecimiento</h2>
+          <div class="meta">
+            <span>Cierre</span>
+            <span>Enfoque: Cierre formal</span>
+          </div>
+        </div>
+        <a class="mini-link" href="#top">Subir</a>
+      </div>
+
+      <div class="note-block teacher-note">
+        <h4>Nota previa</h4>
+        <p>Pausa breve antes de terminar. Mira al jurado y cierra con seguridad.</p>
+      </div>
+
+      <div class="script-block">
+        <h3>Guion sugerido</h3>
+        <p>Para concluir, esta investigación demuestra que la integración de un API REST no solo moderniza tecnológicamente el proceso de transferencias interbancarias, sino que genera mejoras concretas en tiempo, costo y disponibilidad operativa, manteniendo además una alta confiabilidad del servicio.</p><p>Muchas gracias por su atención. Quedo atento a las preguntas y observaciones del jurado.</p>
+      </div>
+
+      
+    </article>
+    
+      </section>
+
+      <div class="footer-note">
+        <strong>Base de elaboración:</strong> contenido preparado a partir de la tesis
+        “Impacto de la integración de un API REST en el proceso de transferencias interbancarias en la Caja Municipal de Ahorro y Crédito de Tacna, 2025”
+        y de la presentación de sustentación correspondiente. Diseño pensado para práctica individual, repaso previo y simulación de exposición.
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const slides = [...document.querySelectorAll('.slide-card')];
+    const toggleNotes = document.getElementById('toggleNotes');
+    const toggleCitations = document.getElementById('toggleCitations');
+    const mainContent = document.getElementById('mainContent');
+
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase().trim();
+      slides.forEach(card => {
+        const text = (card.innerText + ' ' + card.dataset.title + ' ' + card.dataset.section).toLowerCase();
+        card.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+
+    toggleNotes.addEventListener('click', () => {
+      mainContent.classList.toggle('hidden-notes');
+      toggleNotes.textContent = mainContent.classList.contains('hidden-notes')
+        ? 'Mostrar notas previas'
+        : 'Ocultar notas previas';
+    });
+
+    toggleCitations.addEventListener('click', () => {
+      mainContent.classList.toggle('hidden-citations');
+      toggleCitations.textContent = mainContent.classList.contains('hidden-citations')
+        ? 'Mostrar citas'
+        : 'Ocultar citas';
+    });
+  </script>
+</body>
+</html>

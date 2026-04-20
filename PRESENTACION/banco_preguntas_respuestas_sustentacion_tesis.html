@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco de preguntas y respuestas – Sustentación de tesis</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --ink: #18324a;
+      --muted: #60758b;
+      --line: #d9e5f0;
+      --blue: #124b97;
+      --soft: #eef5ff;
+      --shadow: 0 14px 34px rgba(22, 54, 88, .10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(18,75,151,.08), transparent 18%),
+        radial-gradient(circle at bottom right, rgba(122,92,255,.08), transparent 18%),
+        var(--bg);
+      color: var(--ink);
+    }
+    a { color: inherit; text-decoration: none; }
+    .layout {
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      min-height: 100vh;
+    }
+    aside {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: auto;
+      padding: 24px 20px;
+      background: linear-gradient(180deg, #0f3f80, #144f9d);
+      color: white;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+    .tag {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: .84rem;
+      margin-bottom: 14px;
+    }
+    .side-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin: 0 0 10px;
+    }
+    .side-text {
+      font-size: .95rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,.88);
+      margin: 0 0 16px;
+    }
+    .search input {
+      width: 100%;
+      padding: 13px 14px;
+      border: none;
+      border-radius: 14px;
+      outline: none;
+      font-size: .95rem;
+      color: #0f3765;
+    }
+    .nav {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .nav a {
+      display: block;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 11px 12px;
+      border-radius: 14px;
+      font-size: .92rem;
+      line-height: 1.35;
+    }
+    .nav a span {
+      display: block;
+      color: #ffd784;
+      font-size: .8rem;
+      margin-top: 4px;
+    }
+    main {
+      padding: 28px;
+    }
+    .hero {
+      background: linear-gradient(135deg, #124b97, #3b7dd8);
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+    }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.04;
+      max-width: 920px;
+    }
+    .hero p {
+      margin: 0;
+      color: rgba(255,255,255,.92);
+      line-height: 1.75;
+      max-width: 980px;
+      font-size: 1.02rem;
+    }
+    .summary-bar {
+      margin: 18px 0 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 16px;
+      padding: 14px 16px;
+      min-width: 180px;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--blue);
+    }
+    .stat span {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .toolbar button {
+      border: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .section-block {
+      margin-bottom: 26px;
+    }
+    .section-head {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 22px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      border-left: 8px solid var(--accent);
+    }
+    .section-head h2 {
+      margin: 0 0 6px;
+      font-size: 1.45rem;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .details-list {
+      display: grid;
+      gap: 14px;
+    }
+    .qa-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .qa-card summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 18px 18px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .qa-card summary::-webkit-details-marker { display: none; }
+    .num {
+      min-width: 62px;
+      text-align: center;
+      padding: 8px 10px;
+      background: var(--soft);
+      border: 1px solid #cfe0f9;
+      color: var(--blue);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .86rem;
+    }
+    .question {
+      font-size: 1.03rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+    .qa-body {
+      padding: 0 18px 18px 18px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(238,245,255,.45), rgba(255,255,255,1));
+    }
+    .qa-body p {
+      line-height: 1.82;
+      color: #244562;
+      margin: 8px 0 14px;
+    }
+    .answer-short {
+      font-weight: 700;
+      color: #1d3954;
+    }
+    .pill {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #f6faff;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+    .pill-main {
+      background: #edf8f2;
+      border-color: #cfead8;
+      color: #2f6e48;
+    }
+    .cite {
+      color: #5b4b98;
+      font-style: italic;
+    }
+    .tip-box {
+      background: #fff8ea;
+      border: 1px solid #ecd59a;
+      border-radius: 16px;
+      padding: 12px 14px;
+      color: #6c5622;
+      line-height: 1.65;
+    }
+    .footer {
+      margin-top: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 18px;
+      padding: 18px 20px;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+    .compact .qa-body p {
+      line-height: 1.65;
+    }
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      aside {
+        position: relative;
+        height: auto;
+      }
+      main {
+        padding: 18px;
+      }
+      .hero {
+        padding: 24px;
+      }
+    }
+    @media print {
+      aside, .toolbar {
+        display: none !important;
+      }
+      .layout {
+        display: block;
+      }
+      main {
+        padding: 0;
+      }
+      body {
+        background: #fff;
+      }
+      .hero, .section-head, .qa-card, .footer {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      details {
+        open: true;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout" id="top">
+    <aside>
+      <div class="tag">Banco de defensa oral</div>
+      <h2 class="side-title">Preguntas probables y cómo responderlas</h2>
+      <p class="side-text">
+        Material de práctica elaborado a partir de tu tesis y tu presentación.
+        Incluye preguntas simples, metodológicas, estadísticas, técnicas y preguntas difíciles de jurado.
+      </p>
+      <div class="search">
+        <input type="text" id="searchInput" placeholder="Buscar pregunta o concepto...">
+      </div>
+      <nav class="nav">
+        <a href='#sec-1'>1. Preguntas sobre el tema, problema y relevancia <span>10 preguntas</span></a><a href='#sec-2'>2. Preguntas sobre marco teórico y conceptos <span>10 preguntas</span></a><a href='#sec-3'>3. Preguntas sobre metodología y diseño de investigación <span>19 preguntas</span></a><a href='#sec-4'>4. Preguntas sobre resultados y análisis estadístico <span>15 preguntas</span></a><a href='#sec-5'>5. Preguntas sobre la solución tecnológica implementada <span>10 preguntas</span></a><a href='#sec-6'>6. Preguntas sobre discusión, limitaciones, defensa y cierre <span>22 preguntas</span></a>
+      </nav>
+    </aside>
+
+    <main id="mainContent">
+      <section class="hero">
+        <h1>Banco detallado de preguntas y respuestas para sustentar tu tesis</h1>
+        <p>
+          Este material está pensado para que practiques una defensa oral más sólida. No solo recoge preguntas que
+          salen directamente de tus diapositivas, sino también preguntas metodológicas, estadísticas, teóricas y
+          técnicas que pueden surgir a partir de toda tu tesis. Las respuestas están redactadas para sonar naturales
+          en sustentación, pero manteniendo respaldo conceptual y bibliográfico.
+        </p>
+      </section>
+
+      <div class="summary-bar">
+        <div class="stat"><strong>86</strong><span>preguntas desarrolladas</span></div>
+        <div class="stat"><strong>6</strong><span>bloques temáticos</span></div>
+        <div class="stat"><strong>Con citas</strong><span>para reforzar tus respuestas</span></div>
+      </div>
+
+      <div class="toolbar">
+        <button id="expandAll">Abrir todo</button>
+        <button id="collapseAll">Cerrar todo</button>
+        <button id="compactBtn">Modo compacto</button>
+        <button onclick="window.print()">Imprimir / guardar en PDF</button>
+      </div>
+
+      
+    <section class="section-block" id="sec-1">
+      <div class="section-head" style="--accent:#0f4c81">
+        <h2>1. Preguntas sobre el tema, problema y relevancia</h2>
+        <p>Banco de preguntas probables con respuesta sugerida para defensa oral.</p>
+      </div>
+      <div class="details-list">
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.1</span>
+            <span class="question">¿Por qué elegiste este tema de investigación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque responde a una necesidad real de la Caja Tacna: pasar de un esquema tradicional de transferencias diferidas a un servicio interoperable, inmediato y alineado con las exigencias del BCRP.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Elegí este tema porque no se trata de un problema solamente académico, sino de una necesidad institucional concreta. La Caja Municipal de Ahorro y Crédito de Tacna todavía operaba con transferencias tradicionales, lo que implicaba tiempos de espera de uno a dos días para la disposición del dinero. En un entorno financiero donde se exige rapidez, seguridad e interoperabilidad, estudiar el impacto de integrar un API REST resultaba pertinente tanto desde el punto de vista tecnológico como desde el regulatorio. Además, el propio trabajo sostiene que esta modernización contribuye a la competitividad institucional, a la mejora de la experiencia del cliente y al cumplimiento del marco del BCRP.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">BCRP (2024); tesis, planteamiento del problema y justificación.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.2</span>
+            <span class="question">¿Cuál fue el problema principal que motivó la investigación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La Caja Tacna no ofrecía transferencias interbancarias inmediatas y seguía operando con procesamiento por lotes.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El problema principal fue que la Caja Tacna no contaba con un servicio de transferencias interbancarias inmediatas. Eso generaba una brecha frente a otras entidades financieras que sí ofrecían disponibilidad casi instantánea de fondos. El procesamiento por lotes retrasaba la disposición del dinero, afectaba la experiencia del cliente, la competitividad institucional y la imagen de modernización tecnológica. A eso se sumaba la presión normativa del BCRP en materia de interoperabilidad, continuidad y calidad del servicio.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">BCRP (2024); tesis, descripción del problema.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.3</span>
+            <span class="question">¿Por qué este problema es importante a nivel académico y profesional?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque conecta una necesidad operativa real con evidencia científica sobre transformación digital en servicios financieros.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Académicamente, el tema es importante porque permite medir con evidencia empírica cómo una integración tecnológica impacta en un proceso crítico, usando indicadores medibles y análisis estadístico. Profesionalmente, es relevante porque aporta evidencia útil para tomar decisiones en una institución financiera real. En otras palabras, la tesis no se queda en la descripción de una tecnología, sino que demuestra si esa tecnología realmente mejora un proceso de negocio.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Vara Horna (2015); Dumas et al. (2018); tesis, importancia.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.4</span>
+            <span class="question">¿Cuál fue la brecha que tu tesis buscó cubrir?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La falta de evidencia local e institucional sobre el efecto real de integrar un API REST en transferencias interbancarias.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La tesis buscó cubrir una brecha práctica y metodológica. Práctica, porque la Caja Tacna necesitaba modernizar un proceso clave. Metodológica, porque no bastaba con implementar la solución: había que demostrar si realmente generaba mejoras en tiempo, costo, errores y disponibilidad. Por eso, el estudio comparó un antes y un después con datos reales y análisis inferencial.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Hernández-Sampieri y Mendoza (2018); tesis, objetivos e hipótesis.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.5</span>
+            <span class="question">¿Por qué es relevante hablar de API REST en el sector financiero?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque permite integración estandarizada, rapidez operativa y menor acoplamiento entre sistemas.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Es relevante porque una API REST facilita que distintos sistemas se comuniquen mediante una interfaz uniforme, ligera y sin estado. En el sector financiero eso es especialmente valioso, ya que se necesitan integraciones rápidas, confiables y trazables para procesos críticos como pagos y transferencias. En la tesis, la API REST es el medio que permite orquestar un flujo en tiempo real con mejores condiciones de desempeño y automatización.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Masse (2011); Carneiro y Schmelmer (2016); Wolff (2016).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.6</span>
+            <span class="question">¿Por qué relacionaste este tema con la normativa del BCRP?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque el problema no era solo tecnológico; también estaba vinculado a exigencias regulatorias de interoperabilidad y calidad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Lo relacioné con el BCRP porque en el Perú la interoperabilidad de servicios de pago no es una decisión aislada de cada entidad, sino parte de un marco regulatorio que exige eficiencia, seguridad, continuidad y atención estandarizada de incidentes. Por eso, la integración del API REST se analizó como una respuesta técnica a una necesidad operativa y, al mismo tiempo, como una respuesta alineada con la regulación vigente.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">BCRP (2024); tesis, marco normativo.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.7</span>
+            <span class="question">¿Qué aporte concreto ofrece tu tesis a la Caja Tacna?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Ofrece evidencia de que la integración mejoró el tiempo, el costo y la disponibilidad operativa, manteniendo la confiabilidad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El aporte concreto es doble. Primero, aporta evidencia empírica para respaldar la modernización del proceso de transferencias interbancarias. Segundo, ofrece una base técnica y metodológica para justificar decisiones futuras sobre arquitectura, monitoreo y expansión del servicio. La tesis muestra que el cambio no fue solo tecnológico, sino también operativo.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen, conclusiones y recomendaciones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.8</span>
+            <span class="question">¿Qué hubiera pasado si la Caja Tacna no implementaba esta integración?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Se mantenía la desventaja competitiva y la dependencia de un proceso más lento y rígido.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Si la Caja Tacna no avanzaba hacia este tipo de integración, habría continuado operando con un esquema menos competitivo frente a otras entidades que ya trabajan en tiempo real. Además, persistirían tiempos largos de procesamiento, menor flexibilidad de servicio y una imagen menos alineada con las exigencias de modernización del ecosistema financiero actual.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, descripción del problema; BCRP (2024).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.9</span>
+            <span class="question">¿Por qué no era suficiente describir la implementación y ya?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque una tesis exige demostrar impacto, no solo describir una solución técnica.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>No era suficiente porque implementar una tecnología no garantiza por sí sola que el proceso haya mejorado. En investigación, lo importante es demostrar con datos si hubo cambios significativos. Por eso, la tesis no se limita a mostrar la arquitectura del API, sino que compara indicadores antes y después, y utiliza pruebas estadísticas para determinar si las diferencias observadas son reales.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Hernández-Sampieri et al. (2014); Vara Horna (2015).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">1.10</span>
+            <span class="question">Si te preguntan en una frase cuál es el valor central de tu tesis, ¿qué responderías?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Demostrar con evidencia real que una integración API REST mejora un proceso financiero crítico.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Respondería que el valor central de mi tesis es demostrar, con evidencia estadística y operativa real, que la integración de un API REST puede mejorar de manera significativa un proceso financiero crítico, reduciendo tiempos y costos, ampliando la disponibilidad operativa y manteniendo altos niveles de confiabilidad.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y conclusiones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+      </div>
+    </section>
+    
+    <section class="section-block" id="sec-2">
+      <div class="section-head" style="--accent:#166088">
+        <h2>2. Preguntas sobre marco teórico y conceptos</h2>
+        <p>Banco de preguntas probables con respuesta sugerida para defensa oral.</p>
+      </div>
+      <div class="details-list">
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.1</span>
+            <span class="question">¿Qué es una API REST y por qué fue central en tu investigación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Es una interfaz de comunicación entre sistemas basada en HTTP, uniforme, ligera y sin estado.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Una API REST es una interfaz que permite que diferentes sistemas intercambien información de forma estandarizada usando HTTP. Fue central en la investigación porque representó la tecnología mediante la cual la Caja Tacna pudo integrarse con el ecosistema de transferencias inmediatas. En términos simples, fue el mecanismo que permitió pasar de un esquema rígido y diferido a uno más automatizado y cercano al tiempo real.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Masse (2011); Carneiro y Schmelmer (2016).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.2</span>
+            <span class="question">¿Qué significa que una API REST sea &#x27;sin estado&#x27;?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que cada solicitud se procesa de forma independiente, sin depender de solicitudes anteriores.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Decir que una API REST es sin estado significa que cada petición contiene la información necesaria para ser procesada y no requiere conservar contexto de solicitudes anteriores. Eso reduce acoplamiento, facilita escalabilidad y hace al sistema más resistente a fallos. En un proceso financiero, esa característica es valiosa porque permite manejar integraciones de forma más robusta y controlada.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Carneiro y Schmelmer (2016); Wolff (2016).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.3</span>
+            <span class="question">¿Por qué incluiste BPM y flujos transaccionales en el marco teórico?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque no estabas estudiando solo una tecnología, sino un proceso de negocio completo.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Incluí BPM porque la investigación analiza el impacto de una integración tecnológica sobre un proceso de negocio, no solo sobre una aplicación aislada. BPM permite entender cómo se descubren, analizan y rediseñan procesos para generar valor. En ese sentido, el flujo transaccional permitió observar cómo cambiaba el recorrido real de la transferencia cuando se pasaba del procesamiento por lotes a una lógica de tiempo real.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Dumas et al. (2018); Barrera et al. (2018).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.4</span>
+            <span class="question">¿Qué es el &#x27;Cuadrángulo del Diablo&#x27; y por qué lo usaste?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Es una teoría que evalúa el desempeño de un proceso a partir de tiempo, costo, calidad y flexibilidad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Lo usé porque ofrecía una base teórica muy adecuada para analizar el proceso de transferencias de manera multidimensional. El cuadrángulo del diablo plantea que el desempeño de un proceso no se mide en una sola variable, sino en el equilibrio entre tiempo, costo, calidad y flexibilidad. Eso encaja con mi tesis, porque yo no solo quise demostrar que el proceso era más rápido, sino también evaluar si era más económico, confiable y disponible.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Dumas et al. (2018); Van Looy y Shafagatova (2016).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.5</span>
+            <span class="question">¿Por qué estudiaste sistemas de compensación y liquidación en tiempo real?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque son la base conceptual del cambio entre transferencias diferidas e inmediatas.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Los estudié porque el corazón del problema está justamente en la diferencia entre un esquema de procesamiento por lotes y uno de liquidación en tiempo real. Si no se entiende esa diferencia, no se entiende por qué el API REST podía impactar tanto en el tiempo de procesamiento y en la disponibilidad operativa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">CCE (2023); BCRP (2024).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.6</span>
+            <span class="question">¿Qué significa interoperabilidad en el contexto de tu tesis?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La capacidad de que distintas entidades y plataformas puedan operar entre sí de forma segura y eficiente.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>En mi tesis, interoperabilidad significa que la Caja Tacna pueda participar de un ecosistema en el que distintas entidades financieras y plataformas procesan pagos y transferencias bajo reglas comunes, con rapidez, seguridad y continuidad. No es solo conectarse técnicamente, sino hacerlo dentro de un marco de estándares y calidad definidos.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">BCRP (2024); CCE (2023).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.7</span>
+            <span class="question">¿Por qué incluiste conceptos de seguridad como HSM y JWS?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque en servicios financieros la velocidad no basta; también se requiere integridad y seguridad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Los incluí porque en el entorno financiero una integración no puede evaluarse solo por rapidez. También debe cumplir requisitos de autenticidad, integridad y protección criptográfica. El HSM protege el material criptográfico y el JWS permite encapsular información firmada de manera segura. En la tesis, estos conceptos ayudan a sustentar que la solución tecnológica es coherente con un entorno de alta exigencia regulatoria y operativa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Sierra Buitrago y Aguilar (2017); Wolff (2016); CCE (2023).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.8</span>
+            <span class="question">¿Por qué incluiste disponibilidad operativa 24/7 como parte del marco teórico?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque el servicio de transferencias inmediatas exige continuidad más allá del horario tradicional.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La incluí porque una transferencia inmediata no se entiende solo por su rapidez, sino también por la posibilidad de operar fuera de las ventanas tradicionales. La disponibilidad 24/7 es una propiedad esperada en este tipo de servicios, y por eso la conecté con sistemas distribuidos, tolerancia a fallos y continuidad operacional.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Wolff (2016); BCRP (2024).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.9</span>
+            <span class="question">¿Qué entiendes por tasa de errores del procesamiento?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Es la proporción de operaciones que no culminan exitosamente dentro del proceso analizado.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La tasa de errores del procesamiento es un indicador de calidad del proceso. Refleja cuántas operaciones son rechazadas o no se completan correctamente frente al total de operaciones procesadas. En mi tesis fue importante porque permitió evaluar si la mejora en rapidez venía acompañada o no de problemas de confiabilidad.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Dumas et al. (2018); Zendesk (2022).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">2.10</span>
+            <span class="question">¿Qué entiendes por disponibilidad operativa en tu estudio?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La capacidad práctica del proceso para operar en condiciones más amplias, incluso en días no hábiles.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>En mi estudio, disponibilidad operativa no se redujo solo al uptime técnico del sistema. La operacionalicé como la capacidad del proceso de registrar y ejecutar transferencias también en días no hábiles, porque eso expresa una mayor flexibilidad y continuidad práctica del servicio hacia el usuario.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, operacionalización; BCRP (2024).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+      </div>
+    </section>
+    
+    <section class="section-block" id="sec-3">
+      <div class="section-head" style="--accent:#1b7f8b">
+        <h2>3. Preguntas sobre metodología y diseño de investigación</h2>
+        <p>Banco de preguntas probables con respuesta sugerida para defensa oral.</p>
+      </div>
+      <div class="details-list">
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.1</span>
+            <span class="question">¿Qué enfoque tuvo tu investigación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Tuvo enfoque cuantitativo.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Mi investigación tuvo enfoque cuantitativo porque trabajé con registros medibles y analizables estadísticamente, como tiempos de procesamiento, costos, estados de transferencia y registros en días no hábiles. El objetivo fue medir diferencias entre dos condiciones del proceso, no interpretar percepciones subjetivas.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y marco metodológico.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.2</span>
+            <span class="question">¿Por qué tu investigación es de tipo aplicada?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque usa conocimiento científico para resolver un problema real y específico.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Es de tipo aplicada porque no buscó solo ampliar teoría, sino resolver una necesidad concreta de la Caja Tacna. Según Vara Horna, la investigación aplicada emplea conocimiento científico para atender problemas prácticos y generar impacto en una realidad específica. En mi caso, esa realidad fue la optimización del proceso de transferencias interbancarias.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Vara Horna (2015).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.3</span>
+            <span class="question">¿Por qué tu investigación es de nivel explicativo?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque buscó determinar el efecto de una variable sobre otra.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Es explicativa porque no se quedó en describir el proceso, sino que buscó identificar si la integración de un API REST generó cambios en el proceso de transferencias interbancarias. Es decir, analicé una relación de causa-efecto entre la variable independiente y la variable dependiente.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Hernández-Sampieri et al. (2014); tesis, marco metodológico.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.4</span>
+            <span class="question">¿Por qué utilizaste un diseño cuasi experimental?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque comparaste un antes y un después en grupos reales sin asignación aleatoria.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Utilicé un diseño cuasi experimental porque trabajé con grupos preexistentes del contexto institucional: transferencias diferidas en el pretest y transferencias inmediatas en el postest. No era viable ni ético asignar aleatoriamente a los usuarios a un tipo de transferencia, pero sí era posible comparar ambos escenarios reales antes y después de la integración. Ese tipo de comparación es consistente con los diseños cuasi experimentales con grupos no equivalentes.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Hernández-Sampieri y Mendoza (2018); tesis, resumen y diseño.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.5</span>
+            <span class="question">¿Por qué no usaste un diseño experimental puro?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque no había control total ni aleatorización de los grupos.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>No utilicé un diseño experimental puro porque en el entorno institucional no era posible asignar aleatoriamente las transferencias a una condición de control o experimental. Los grupos se formaron a partir de la realidad operativa del servicio. Por eso, el diseño más adecuado fue uno cuasi experimental, que permite estudiar efectos en contextos reales aunque no exista control absoluto.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Hernández-Sampieri y Mendoza (2018).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.6</span>
+            <span class="question">¿Qué significa pretest y postest en tu tesis?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Pretest es el periodo previo a la integración; postest, el periodo posterior con el API REST operando.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>En mi tesis, el pretest corresponde al escenario anterior a la integración, representado por las transferencias interbancarias diferidas. El postest corresponde al escenario posterior, en el que ya operaban las transferencias interbancarias inmediatas mediante el API REST. Ambos permitieron comparar indicadores equivalentes antes y después del cambio tecnológico.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y procedimiento experimental.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.7</span>
+            <span class="question">¿Cuál fue tu población?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Todas las transferencias interbancarias registradas durante 2025; la población general fue de 14 849 registros.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La población general estuvo conformada por 14 849 registros de transferencias interbancarias generados durante el año 2025. Luego se definió una población accesible de 10 885 transferencias que cumplían criterios de integridad de datos, trazabilidad técnica y confirmación operativa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis y presentación, población y muestra.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.8</span>
+            <span class="question">¿Qué fue la población accesible y por qué la delimitaste?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Fue el subconjunto de registros que sí reunía condiciones técnicas adecuadas para ser analizado con rigor.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La población accesible estuvo formada por 10 885 transferencias que cumplían criterios de integridad, trazabilidad y confirmación operativa. La delimitación fue necesaria para trabajar con datos válidos y comparables. Si incluía registros incompletos o sin trazabilidad suficiente, podía introducir sesgos y afectar la validez del análisis.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis y presentación, población y muestra.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.9</span>
+            <span class="question">¿Cuál fue tu muestra?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">5 106 transferencias diferidas en el grupo de control y 5 779 inmediatas en el grupo experimental.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La muestra estuvo conformada por dos grupos: 5 106 transferencias interbancarias diferidas, consideradas como grupo de control o condición previa, y 5 779 transferencias interbancarias inmediatas procesadas mediante la arquitectura API REST, consideradas como grupo experimental o condición posterior.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen; presentación, población y muestra.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.10</span>
+            <span class="question">¿Por qué usaste muestreo no probabilístico intencional?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque necesitabas seleccionar registros con características específicas y comparables, no una muestra aleatoria cualquiera.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Usé muestreo no probabilístico intencional porque la investigación no requería seleccionar casos al azar de toda la población, sino elegir deliberadamente registros que cumplieran criterios concretos: integridad de datos, trazabilidad técnica y confirmación operativa. Además, el estudio compara dos grupos naturales del proceso, uno previo y otro posterior a la integración, lo que es coherente con un diseño cuasi experimental. En este tipo de estudios, la selección por criterios es metodológicamente más pertinente que una aleatorización artificial.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Arias (2012); Hernández-Sampieri y Mendoza (2018); tesis, población y muestra.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.11</span>
+            <span class="question">Si te preguntan por la desventaja del muestreo no probabilístico intencional, ¿qué respondes?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que limita la generalización estadística amplia, pero fortalece la pertinencia de los casos seleccionados.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Respondería que su principal limitación es que no permite una generalización probabilística tan fuerte como un muestreo aleatorio. Sin embargo, en esta tesis la prioridad no era estimar parámetros poblacionales abstractos, sino comparar con rigor dos condiciones operativas reales. Por eso, el muestreo intencional fue adecuado: privilegió calidad y pertinencia de los registros sobre representatividad aleatoria.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Arias (2012); Hernández-Sampieri et al. (2014).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.12</span>
+            <span class="question">¿Por qué no usaste encuestas o entrevistas?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque tus variables eran operativas y técnicas, y podían medirse objetivamente con registros del sistema.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>No usé encuestas ni entrevistas porque las variables de estudio eran observables directamente en los sistemas institucionales. El tiempo de procesamiento, los errores, el costo operativo y la disponibilidad podían medirse a partir de registros reales. Por tanto, trabajar con fuentes objetivas y no intrusivas era más apropiado que depender de percepciones.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Cândido (2021); Gholamian y Ward (2021); tesis, técnicas e instrumentos.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.13</span>
+            <span class="question">¿Qué instrumentos utilizaste para recoger los datos?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Registros de monitoreo, pruebas de carga y estrés, y registros transaccionales.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Utilicé tres instrumentos principales. Los registros de monitoreo para evaluar disponibilidad y rendimiento; las pruebas de carga y estrés para observar el comportamiento del API bajo alta demanda; y los registros transaccionales para medir tiempos, errores, estados y resultados reales de las transferencias.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, técnicas de recolección de datos; presentación, técnicas e instrumentos.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.14</span>
+            <span class="question">¿Por qué los registros transaccionales fueron importantes?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque reflejan lo que realmente ocurrió en producción.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Fueron importantes porque constituyen una fuente objetiva y no intrusiva de información. Cada operación deja trazas con fecha, hora, importe, estado y posibles errores. Eso permite reconstruir el flujo real del proceso y medir indicadores con base en hechos, no en percepciones o simulaciones aisladas.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Cândido (2021); tesis, registros transaccionales.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.15</span>
+            <span class="question">¿Cómo procesaste la información recolectada?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Con Excel para depuración y organización, y con IBM SPSS v26 para el análisis estadístico.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Primero utilicé Microsoft Excel para almacenar, depurar y organizar la información exportada de los registros. Después, usé IBM SPSS v26 para ejecutar el análisis descriptivo e inferencial. Esa combinación permitió preparar adecuadamente los datos y luego contrastar las hipótesis con herramientas estadísticas reconocidas.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, técnicas para el procesamiento de datos.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.16</span>
+            <span class="question">¿Por qué elegiste SPSS?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque permitía realizar con solidez el análisis descriptivo, la prueba de normalidad y las pruebas inferenciales.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Elegí SPSS porque es una herramienta consolidada para análisis estadístico en investigación aplicada. Me permitió trabajar con muestras grandes, ejecutar pruebas de normalidad, contrastar hipótesis con pruebas no paramétricas y pruebas de asociación, y presentar resultados de manera consistente y trazable.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, procesamiento de datos.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.17</span>
+            <span class="question">¿Cómo aseguraste la validez de los instrumentos?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Mediante juicio de expertos y validación con coeficiente V de Aiken.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La validez de los instrumentos se aseguró mediante juicio de expertos. Luego, se usó el coeficiente V de Aiken para evaluar coherencia, relevancia, claridad y suficiencia de los indicadores. Los resultados mostraron valores iguales o mayores a 0,80 en todos los indicadores, por lo que se concluyó que el instrumento tenía adecuada validez de contenido.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Palella Stracuzzi y Martins (2012); tesis, tabla 26.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.18</span>
+            <span class="question">¿Qué significa que el V de Aiken haya sido mayor o igual a 0,80?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que los indicadores fueron valorados como válidos y pertinentes por los expertos.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Significa que existe un nivel adecuado de acuerdo entre los expertos respecto de la calidad del instrumento en dimensiones como coherencia, relevancia, claridad y suficiencia. En términos prácticos, respalda que los indicadores elegidos sí eran pertinentes para medir las variables del estudio.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, validación de instrumentos y tabla 26.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">3.19</span>
+            <span class="question">¿Cuántos expertos participaron en la validación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Tres jurados expertos.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Participaron tres jurados expertos, quienes evaluaron los indicadores de las variables estudiadas. Esa revisión permitió fortalecer la validez de contenido del instrumento antes del análisis final.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, tabla 26.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+      </div>
+    </section>
+    
+    <section class="section-block" id="sec-4">
+      <div class="section-head" style="--accent:#218380">
+        <h2>4. Preguntas sobre resultados y análisis estadístico</h2>
+        <p>Banco de preguntas probables con respuesta sugerida para defensa oral.</p>
+      </div>
+      <div class="details-list">
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.1</span>
+            <span class="question">¿Cuál fue el resultado general de la investigación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que la integración del API REST mejoró el proceso de transferencias interbancarias.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El resultado general fue que la integración del API REST mejoró el proceso de transferencias interbancarias en la Caja Tacna. Eso se evidenció principalmente en una reducción significativa del tiempo de procesamiento y del costo operativo, así como en una mejora significativa de la disponibilidad operativa. En la tasa de errores hubo una ligera mejora, pero no estadísticamente significativa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y conclusiones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.2</span>
+            <span class="question">¿Cuál fue el principal hallazgo en tiempo de procesamiento?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que hubo una reducción muy marcada y estadísticamente significativa.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El principal hallazgo fue que el tiempo promedio de procesamiento se redujo de 23 830,98 segundos en el pretest a 729,60 segundos en el postest. Además, la mediana pasó de 10 515,04 segundos a 0,63 segundos. Eso muestra que el cambio no fue menor, sino estructural: el proceso pasó de una lógica de espera prolongada a una lógica prácticamente inmediata.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y resultados descriptivos.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.3</span>
+            <span class="question">¿Por qué mencionas también la mediana y no solo la media?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque la mediana representa mejor el comportamiento típico cuando hay asimetría y valores extremos.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Menciono la mediana porque en variables como tiempo de procesamiento pueden existir valores extremos que distorsionen la media. La mediana ofrece una visión más representativa del comportamiento central de los datos cuando la distribución es asimétrica. En mi tesis, la diferencia en la mediana fue especialmente útil para mostrar el cambio real en la operación típica del proceso.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Field (2013); tesis, resultados y normalidad.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.4</span>
+            <span class="question">¿Qué ocurrió con la tasa de errores del procesamiento?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Se mantuvo baja en ambos periodos y no mostró una diferencia estadísticamente significativa.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La tasa de errores se mantuvo baja en ambos periodos. En el pretest hubo 1,3 % de transferencias rechazadas y en el postest 1,0 %. Es decir, operativamente hubo una ligera reducción, pero estadísticamente esa diferencia no fue significativa. Por eso, la conclusión correcta es que el API REST mantuvo la confiabilidad del proceso en niveles altos.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y contrastación de hipótesis específica 2.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.5</span>
+            <span class="question">¿Cómo interpretas que la tasa de errores no haya sido significativa?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que el proceso ya era confiable y que la integración no deterioró esa confiabilidad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Lo interpreto como un resultado importante y no como una debilidad. La falta de significancia no significa que el sistema no haya funcionado, sino que la confiabilidad ya era alta en el esquema previo y se mantuvo alta en el posterior. Es decir, el cambio tecnológico mejoró velocidad, costo y disponibilidad sin sacrificar la estabilidad del proceso.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resultados y conclusiones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.6</span>
+            <span class="question">¿Qué pasó con el costo operativo?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Disminuyó de manera significativa.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El costo operativo promedio bajó de 9,99 soles en el pretest a 3,79 soles en el postest. Ese resultado fue estadísticamente significativo, lo que demuestra que la integración del API REST no solo mejoró la rapidez del proceso, sino también su eficiencia económica.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y prueba de hipótesis específica 3.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.7</span>
+            <span class="question">¿Cómo mediste la disponibilidad operativa?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">A partir del registro de transferencias en días no hábiles.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La disponibilidad operativa se midió observando la proporción de transferencias registradas en días no hábiles. En el pretest fue de 7,70 % y en el postest subió a 30,60 %. Ese cambio fue estadísticamente significativo y se interpretó como una mayor flexibilidad y continuidad práctica del servicio.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resultados descriptivos y tabla cruzada de disponibilidad operativa.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.8</span>
+            <span class="question">¿Por qué consideraste días no hábiles como una forma de medir disponibilidad operativa?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque expresan capacidad real de funcionamiento fuera del esquema tradicional.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Lo consideré así porque el interés no era medir solo si el servidor estaba encendido, sino si el proceso realmente podía operar más allá del patrón tradicional de días y horarios hábiles. Las transferencias registradas en días no hábiles expresan una mejora práctica en continuidad y flexibilidad del servicio para el usuario.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, operacionalización y resultados.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.9</span>
+            <span class="question">¿Por qué aplicaste prueba de normalidad?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Para decidir correctamente si correspondían pruebas paramétricas o no paramétricas.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Apliqué pruebas de normalidad porque antes de escoger el estadístico de contraste era necesario saber si los datos seguían o no una distribución normal. Ese paso metodológico evita aplicar pruebas inadecuadas y fortalece el rigor del análisis inferencial.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Field (2013); tesis, técnicas para procesamiento de datos.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.10</span>
+            <span class="question">¿Por qué usaste Kolmogórov–Smirnov?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque trabajaste con muestras grandes y querías verificar normalidad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Usé Kolmogórov–Smirnov porque las muestras eran grandes y esa prueba es apropiada para evaluar normalidad en ese contexto. En ambos indicadores cuantitativos principales, tiempo y costo, los valores de significancia fueron menores a 0,05, por lo que concluí que no seguían distribución normal.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, pruebas de normalidad; Field (2013).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.11</span>
+            <span class="question">¿Por qué usaste U de Mann–Whitney?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque comparabas dos grupos independientes cuyos datos no eran normales.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Utilicé la prueba U de Mann–Whitney porque comparaba dos grupos independientes, pretest y postest, y los datos cuantitativos no cumplían el supuesto de normalidad. Al tratarse de una prueba no paramétrica, era la opción metodológicamente adecuada para contrastar diferencias en tiempo de procesamiento y costo operativo.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Nachar (2008); Hernández-Sampieri et al. (2014); tesis, hipótesis específicas 1 y 3.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.12</span>
+            <span class="question">¿Por qué usaste Chi-cuadrado?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque las variables analizadas en esas hipótesis eran categóricas.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Usé Chi-cuadrado de Pearson en las hipótesis sobre tasa de errores y disponibilidad operativa porque en esos casos trabajé con variables categóricas, como aceptada o rechazada, y registrada o no registrada en día no hábil. Esa prueba permite determinar si existe asociación significativa entre la condición del estudio y la categoría observada.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, pruebas de hipótesis específicas 2 y 4.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.13</span>
+            <span class="question">¿Qué significa que p sea menor a 0,05?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que existe evidencia estadística suficiente para rechazar la hipótesis nula al nivel de significancia establecido.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Significa que la probabilidad de obtener una diferencia como la observada, asumiendo que la hipótesis nula fuera verdadera, es suficientemente baja como para rechazarla con un nivel de significancia de 0,05. En mi tesis, eso ocurrió en tiempo de procesamiento, costo operativo y disponibilidad operativa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Field (2013); tesis, contrastación de hipótesis.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.14</span>
+            <span class="question">¿Por qué no hiciste una prueba paramétrica como t de Student?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque los datos no cumplían el supuesto de normalidad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>No la utilicé porque la prueba de normalidad mostró que los datos de tiempo y costo no provenían de una distribución normal. Aplicar una prueba paramétrica en esas condiciones habría sido menos adecuado metodológicamente. Por eso se optó por una prueba no paramétrica como Mann–Whitney.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Field (2013); Nachar (2008).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">4.15</span>
+            <span class="question">¿Cuál hipótesis sí no fue confirmada de manera significativa?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La hipótesis específica sobre reducción de la tasa de errores del procesamiento.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La hipótesis específica 2, referida a la tasa de errores del procesamiento, no fue confirmada con significancia estadística. Aunque hubo una ligera mejora en términos descriptivos, el valor p fue mayor a 0,05. Por ello, metodológicamente corresponde decir que no hubo evidencia suficiente para afirmar una reducción significativa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, contraste de hipótesis específica 2.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+      </div>
+    </section>
+    
+    <section class="section-block" id="sec-5">
+      <div class="section-head" style="--accent:#3b7dd8">
+        <h2>5. Preguntas sobre la solución tecnológica implementada</h2>
+        <p>Banco de preguntas probables con respuesta sugerida para defensa oral.</p>
+      </div>
+      <div class="details-list">
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.1</span>
+            <span class="question">¿Qué tecnología concreta implementaste en la entidad?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Un servicio de transferencias interbancarias inmediatas implementado como API REST en .NET 8 y desplegado en IIS.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La solución implementada fue un servicio de transferencias interbancarias inmediatas desarrollado como API REST en .NET Core 8 y desplegado en IIS dentro de la infraestructura de la Caja Tacna. La arquitectura siguió una lógica de capas o arquitectura limpia, separando dominio, aplicación, infraestructura, componentes comunes y distribución HTTP.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, aplicación de la tecnología encontrada.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.2</span>
+            <span class="question">¿Por qué elegiste .NET 8 e IIS?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque son tecnologías robustas, de alto desempeño y coherentes con el entorno institucional.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Se eligieron porque ofrecen robustez, soporte empresarial y alto desempeño para construir APIs transaccionales. Además, eran coherentes con el entorno tecnológico institucional y permitían un despliegue estable sobre Windows Server mediante IIS. Eso facilitó integración, mantenimiento y operación real del servicio.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Microsoft (2024); tesis, tabla de software utilizado.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.3</span>
+            <span class="question">¿Qué herramientas complementarias formaron parte del entorno tecnológico?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Entre otras, SQL Server, Consul, Prometheus, HSM y RabbitMQ.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El entorno incluyó Visual Studio 2022, SQL Server 2019, Postman, TFS, IIS 10, .NET 8, Consul para descubrimiento y health checks, Prometheus para métricas, HSM para firma JWS y RabbitMQ para mensajería interna. Todo ello muestra que la solución no fue solo un API aislado, sino un servicio con soporte de despliegue, monitoreo, observabilidad y seguridad.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, tabla 27.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.4</span>
+            <span class="question">¿Qué significa que hayas usado arquitectura limpia?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que separaste responsabilidades para hacer el sistema más mantenible, escalable y desacoplado.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Significa que la solución fue organizada en capas con responsabilidades diferenciadas. La capa de dominio concentra reglas de negocio, la de aplicación coordina casos de uso, la de infraestructura atiende integraciones y detalles técnicos, y la distribución HTTP expone el servicio. Esa separación facilita mantenimiento, pruebas, escalabilidad y menor dependencia entre componentes.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Wolff (2016); tesis, aplicación tecnológica.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.5</span>
+            <span class="question">¿Cómo evaluaste técnicamente el desempeño del API?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Con pruebas de carga y estrés usando Apache JMeter.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El desempeño del API se evaluó mediante Apache JMeter, definiendo escenarios objetivo de 1 000, 1 500 y 2 500 solicitudes por minuto. Se trabajó con configuración de hilos concurrentes, control de throughput y un periodo de ramp-up de 60 segundos para alcanzar estado estable antes de recolectar métricas.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">ISTQB (2018); Molyneaux (2014); tesis, pruebas de carga.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.6</span>
+            <span class="question">¿Qué resultados obtuviste en las pruebas de carga?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">El sistema mantuvo 100 % de éxito en los escenarios definidos, aunque con aumento de latencia al acercarse a saturación.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>En las pruebas de carga, el sistema mantuvo una tasa de éxito del 100 % en los escenarios de 1 000, 1 500 y 2 500 solicitudes por minuto. Sin embargo, conforme aumentó la demanda, también crecieron la mediana y los percentiles de latencia, lo que permitió identificar el punto de saturación y la capacidad efectiva del servicio bajo presión.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, tabla 4; Molyneaux (2014).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.7</span>
+            <span class="question">¿Qué aprendiste con el throughput objetivo y el throughput observado?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que la capacidad real del sistema se debe analizar con base en el throughput observado, no solo el objetivo configurado.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Aprendí que en ingeniería de rendimiento no basta con fijar una tasa objetivo de solicitudes. Lo relevante es observar cuánto procesa realmente el sistema bajo condiciones de latencia, recursos y carga. Por eso en la tesis se reportaron ambos: el throughput objetivo y el observado. Eso permitió identificar la capacidad efectiva y los límites operativos del API.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Molyneaux (2014); tesis, tabla 4.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.8</span>
+            <span class="question">¿Cómo garantizaste seguridad en la solución?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Con un entorno que incorpora HSM y firma JWS, además de controles de arquitectura y monitoreo.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La seguridad se sustentó en el uso de HSM para manejo de material criptográfico y firma JWS para integridad del mensaje, además de una arquitectura controlada y herramientas de monitoreo. En un servicio financiero, seguridad no significa solo bloquear accesos, sino asegurar autenticidad, no repudio, integridad y trazabilidad de las operaciones.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Sierra Buitrago y Aguilar (2017); CCE (2023); tesis, seguridad aplicada.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.9</span>
+            <span class="question">¿Qué papel tuvieron Consul y Prometheus?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Apoyaron disponibilidad, health checks y observabilidad del servicio.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Consul aportó descubrimiento y verificaciones de salud del servicio, mientras que Prometheus permitió capturar métricas y reforzar la observabilidad. En conjunto, estas herramientas respaldan la operación continua, la detección temprana de fallos y la supervisión del comportamiento del sistema en producción.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, tabla 27 y disponibilidad/observabilidad.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">5.10</span>
+            <span class="question">¿Por qué no bastaba con decir que el sistema &#x27;funcionaba&#x27;?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque una solución de producción debe demostrar rendimiento, disponibilidad, trazabilidad y seguridad.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Porque en un entorno financiero no basta con que un sistema responda una vez. Debe demostrar que puede sostener carga, mantener estabilidad, registrar trazas, proteger la integridad de la información y operar con continuidad. Por eso la tesis no se quedó en la descripción del desarrollo, sino que incorporó pruebas de rendimiento, monitoreo y análisis de resultados reales.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Pressman y Maxim (2020); Gholamian y Ward (2021); tesis, aplicación tecnológica.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+      </div>
+    </section>
+    
+    <section class="section-block" id="sec-6">
+      <div class="section-head" style="--accent:#7a5cff">
+        <h2>6. Preguntas sobre discusión, limitaciones, defensa y cierre</h2>
+        <p>Banco de preguntas probables con respuesta sugerida para defensa oral.</p>
+      </div>
+      <div class="details-list">
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.1</span>
+            <span class="question">¿Cuáles fueron las principales limitaciones de tu investigación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La limitación temporal y la limitación geográfica o contextual.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Las principales limitaciones fueron dos. La primera fue temporal, porque el estudio se concentró en el año 2025 y no evaluó efectos a más largo plazo. La segunda fue contextual o geográfica, porque el análisis se realizó dentro de la Caja Tacna y, por tanto, los hallazgos describen ese entorno específico. Aplicarlos a otras entidades requeriría una nueva validación, dado que pueden cambiar procesos, tecnologías y políticas internas.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, limitaciones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.2</span>
+            <span class="question">¿Eso significa que tus resultados no sirven para otras entidades?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Sí sirven como referencia, pero no deben generalizarse automáticamente sin validación contextual.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Mis resultados sí pueden servir como referencia técnica y metodológica para otras entidades, pero no deben generalizarse de manera automática. Lo correcto es decir que aportan evidencia valiosa y transferible en parte, aunque su aplicación exacta en otra organización debería validarse según su propia arquitectura, procesos, volumen y normativas internas.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, limitaciones; Hernández-Sampieri et al. (2014).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.3</span>
+            <span class="question">¿Cuál consideras que fue el aporte principal de tu tesis?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Demostrar con datos reales que la integración de un API REST mejora un proceso financiero crítico.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Considero que el principal aporte fue demostrar, en una entidad financiera real, que una integración API REST no solo es viable técnicamente, sino también efectiva para mejorar el desempeño del proceso en variables concretas como tiempo, costo y disponibilidad operativa. Además, el trabajo deja un precedente metodológico para evaluar futuras integraciones de forma rigurosa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, discusión, conclusiones y recomendaciones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.4</span>
+            <span class="question">¿Cómo se relacionan tus hallazgos con otras investigaciones?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Coinciden con antecedentes que muestran mejoras en confiabilidad, automatización y desempeño mediante APIs REST.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Mis hallazgos guardan coherencia con investigaciones previas, como las de Jaramillo Arboleda, Salas Berríos y Aguero Barreto, y Rojas Barraza, que muestran que las APIs REST y la automatización fortalecen fiabilidad, rapidez y eficiencia operativa. Lo distintivo de mi tesis es que esas mejoras se evidencian dentro del contexto específico de transferencias interbancarias en una caja municipal peruana.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Jaramillo Arboleda (2024); Salas Berríos y Aguero Barreto (2023); Rojas Barraza (2022).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.5</span>
+            <span class="question">¿Qué harías como continuación de esta investigación?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Ampliaría el horizonte temporal y evaluaría más indicadores, como satisfacción del cliente o escalamiento institucional.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Como continuación, ampliaría el periodo de observación para evaluar sostenibilidad del impacto en el tiempo. También incorporaría indicadores adicionales, por ejemplo satisfacción del cliente, volumen transaccional futuro, costo total de operación a largo plazo o análisis comparativo con otras entidades financieras. Eso permitiría una visión más completa del impacto de la transformación digital.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, recomendaciones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.6</span>
+            <span class="question">Si el jurado te dice que el estudio solo demuestra correlación y no causalidad absoluta, ¿qué respondes?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que el diseño cuasi experimental no ofrece control absoluto, pero sí evidencia robusta de efecto en condiciones reales.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Respondería que esa observación es metodológicamente válida. Un diseño cuasi experimental no alcanza el nivel de control de un experimento puro, por lo que no permite afirmar causalidad absoluta en sentido estricto. Sin embargo, sí ofrece evidencia fuerte y razonable sobre el efecto del cambio tecnológico en condiciones reales de operación, especialmente cuando las diferencias se observan en indicadores concretos y se respaldan con análisis estadístico.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Hernández-Sampieri y Mendoza (2018).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.7</span>
+            <span class="question">¿Qué responderías si te preguntan por qué la tasa de errores no mejoró significativamente?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque el proceso ya presentaba alta confiabilidad desde el inicio.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Respondería que la tasa de errores ya era bastante baja en el pretest, por lo que el margen de mejora estadística era reducido. Aun así, el postest mostró una ligera reducción. Por eso, más que decir que el API REST no ayudó, lo correcto es afirmar que mantuvo la confiabilidad del proceso mientras mejoró de forma muy marcada otras dimensiones como tiempo, costo y disponibilidad.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resultados y conclusiones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.8</span>
+            <span class="question">¿Qué responderías si te preguntan si la tesis valida más la tecnología o más el proceso?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Valida el impacto de una tecnología sobre un proceso.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Respondería que la tesis no valida la tecnología en abstracto, sino el impacto de esa tecnología sobre un proceso de negocio concreto. Es decir, no estudio el API REST como fin en sí mismo, sino como medio para transformar el proceso de transferencias interbancarias y medir si esa transformación produce mejoras reales.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Dumas et al. (2018); tesis, objetivo general.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.9</span>
+            <span class="question">¿Qué fortalezas metodológicas destacarías de tu estudio?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Uso de datos reales, indicadores operativos, validación de instrumentos y análisis inferencial.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Destacaría cuatro fortalezas. Primero, el uso de registros institucionales reales. Segundo, la medición de indicadores operativos concretos. Tercero, la validación de contenido mediante expertos y V de Aiken. Y cuarto, la aplicación de análisis inferencial apropiado según el tipo de variable y el comportamiento de los datos.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, metodología, validación de instrumentos y contrastación de hipótesis.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.10</span>
+            <span class="question">¿Qué debilidad reconocerías con honestidad si el jurado te lo pide?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que el estudio es sólido en su contexto, pero no pretende generalización universal.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Reconocería que, aunque el estudio es metodológicamente sólido para el contexto analizado, su principal debilidad es que se circunscribe a una sola institución y a un solo periodo anual. Eso limita una extrapolación amplia. Sin embargo, esa misma especificidad también es una fortaleza porque permite un análisis profundo del caso real.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, limitaciones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.11</span>
+            <span class="question">¿Cuál sería una defensa breve para tu elección metodológica completa?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Que elegiste el diseño más realista y riguroso posible dentro de un entorno institucional real.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Mi defensa breve sería que elegí el diseño más realista y metodológicamente riguroso posible para estudiar un proceso real en una entidad financiera. Trabajé con datos objetivos, seleccioné registros técnicamente válidos, comparé dos condiciones operativas reales y apliqué análisis estadístico acorde al comportamiento de los datos. Eso permite sostener las conclusiones con fundamento.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Hernández-Sampieri y Mendoza (2018); Vara Horna (2015); tesis, metodología.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.12</span>
+            <span class="question">Si al final te preguntan por qué tu tesis merece ser aprobada, ¿qué responderías?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque resuelve un problema real, usa metodología coherente y demuestra resultados relevantes con evidencia.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Respondería que mi tesis merece ser aprobada porque aborda un problema real y vigente del sector financiero, desarrolla un marco teórico y metodológico coherente con el objeto de estudio, trabaja con datos institucionales reales y demuestra con evidencia estadística resultados relevantes para la mejora del proceso. Además, no solo analiza el impacto, sino que documenta la aplicación concreta de la solución tecnológica.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis completa: problema, metodología, resultados, discusión y conclusiones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.13</span>
+            <span class="question">¿Por qué no mediste satisfacción del cliente?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque el foco del estudio fue operacional y transaccional, no perceptual.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>No medí satisfacción del cliente porque el objetivo central fue evaluar el impacto de la integración en variables operativas directamente observables: tiempo, errores, costo y disponibilidad. Incorporar satisfacción del cliente habría implicado añadir otra dimensión metodológica, probablemente con instrumentos perceptuales distintos, que podría desarrollarse como línea futura.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, objetivos y recomendaciones.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.14</span>
+            <span class="question">¿Por qué comparaste transferencias diferidas e inmediatas?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque representan las dos condiciones reales del proceso antes y después de la integración.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Las comparé porque son la expresión concreta del antes y del después del cambio tecnológico. Las transferencias diferidas representan el esquema tradicional; las inmediatas, el esquema posterior con API REST. Esa comparación permite medir si la modernización produjo un efecto real sobre el proceso.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y procedimiento experimental.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.15</span>
+            <span class="question">¿Qué hubiera ocurrido si tus datos sí eran normales?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Habrías podido usar pruebas paramétricas para variables cuantitativas.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Si los datos hubieran cumplido normalidad, metodológicamente habría sido posible considerar pruebas paramétricas, como t de Student para grupos independientes. Pero como no se cumplió ese supuesto, la decisión correcta fue usar pruebas no paramétricas.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Field (2013); tesis, pruebas de normalidad.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.16</span>
+            <span class="question">¿Qué es una fuente no intrusiva de datos y por qué importa?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Es una fuente que no altera el proceso mientras lo observas.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Una fuente no intrusiva es aquella que permite analizar el proceso sin intervenirlo ni modificar su comportamiento. Los registros transaccionales y de monitoreo cumplen esa condición, lo cual es valioso porque reflejan la operación real tal como ocurrió, reduciendo sesgos por observación o manipulación.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Cândido (2021); Gholamian y Ward (2021).</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.17</span>
+            <span class="question">¿Por qué tomaste 2025 como horizonte temporal?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque era el periodo en el que se disponía del antes y después de la integración dentro de una misma ventana anual.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Se tomó 2025 porque en ese periodo se registraban tanto las condiciones previas como posteriores a la integración, permitiendo una comparación consistente dentro de una misma unidad temporal institucional. Eso ayudó a controlar mejor la comparabilidad operativa del análisis.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, limitación temporal y procedimiento experimental.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.18</span>
+            <span class="question">¿Cómo justificarías el uso de datos institucionales frente a datos simulados?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque los datos institucionales muestran el impacto real en producción.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Los datos simulados son útiles para pruebas técnicas, pero no reemplazan la evidencia operativa real. En esta tesis se usaron pruebas de carga para evaluar comportamiento técnico y registros institucionales para medir impacto real en producción. Esa combinación fortaleció el estudio.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Pressman y Maxim (2020); tesis, técnicas e instrumentos.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.19</span>
+            <span class="question">¿Por qué no te quedaste solo con las pruebas de carga?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">Porque una tesis de impacto en proceso requiere también evidencia transaccional real.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Las pruebas de carga me ayudaron a evaluar el comportamiento del API ante demanda elevada, pero no eran suficientes para demostrar el impacto sobre el proceso de negocio. Para eso necesitaba registros transaccionales reales que mostraran tiempos, errores, costos y disponibilidad en uso efectivo.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, instrumentos y resultados.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.20</span>
+            <span class="question">¿Qué diferencia hay entre disponibilidad del servicio y disponibilidad operativa?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La primera mira el servicio técnico; la segunda, la capacidad práctica del proceso para operar.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>La disponibilidad del servicio se refiere más al comportamiento técnico del sistema, por ejemplo su continuidad y capacidad de permanecer activo. La disponibilidad operativa, en cambio, la enfoqué como la capacidad real del proceso para ejecutarse en condiciones más amplias, como registrar operaciones en días no hábiles. Es una distinción entre el plano técnico y el plano funcional del servicio.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, variables e indicadores.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.21</span>
+            <span class="question">¿Qué indicador consideras más fuerte para defender tu tesis?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">El tiempo de procesamiento, porque mostró una reducción muy marcada y estadísticamente significativa.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>Considero que el indicador más fuerte es el tiempo de procesamiento, porque combina tres elementos potentes: una reducción muy grande en términos operativos, consistencia con el objetivo central del servicio inmediato y respaldo estadístico claro. Además, el descenso de la mediana a 0,63 segundos transmite con mucha claridad el cambio logrado.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, resumen y resultados.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+        <details class="qa-card">
+          <summary>
+            <span class="num">6.22</span>
+            <span class="question">¿Qué indicador consideras más delicado de explicar?</span>
+          </summary>
+          <div class="qa-body">
+            <div class="pill pill-main">Respuesta breve</div>
+            <p class="answer-short">La tasa de errores, porque mejoró levemente pero no de forma significativa.</p>
+
+            <div class="pill">Cómo responder en sustentación</div>
+            <p>El más delicado de explicar es la tasa de errores, porque puede prestarse a una sobreinterpretación. La forma correcta de defenderla es decir que el proceso mantuvo alta confiabilidad en ambos escenarios y que la ligera mejora observada no fue estadísticamente significativa.</p>
+
+            <div class="pill">Cita de respaldo</div>
+            <p class="cite">Tesis, hipótesis específica 2.</p>
+
+            <div class="tip-box">
+              <strong>Tip oral:</strong> responde primero en una idea corta, luego amplía con el criterio metodológico o técnico, y cierra conectándolo con tu tesis.
+            </div>
+          </div>
+        </details>
+        
+      </div>
+    </section>
+    
+
+      <div class="footer">
+        <strong>Base de elaboración:</strong> documento de tesis “Impacto de la integración de un API REST en el proceso de transferencias interbancarias en la Caja Municipal de Ahorro y Crédito de Tacna, 2025” y presentación de sustentación asociada. El objetivo de este archivo es ayudarte a practicar defensa oral, repreguntas de jurado y respuestas con sustento metodológico y teórico.
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const input = document.getElementById('searchInput');
+    const cards = [...document.querySelectorAll('.qa-card')];
+    const expandAll = document.getElementById('expandAll');
+    const collapseAll = document.getElementById('collapseAll');
+    const compactBtn = document.getElementById('compactBtn');
+    const mainContent = document.getElementById('mainContent');
+
+    input.addEventListener('input', e => {
+      const term = e.target.value.toLowerCase().trim();
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(term) ? '' : 'none';
+      });
+    });
+
+    expandAll.addEventListener('click', () => {
+      cards.forEach(card => card.open = true);
+    });
+
+    collapseAll.addEventListener('click', () => {
+      cards.forEach(card => card.open = false);
+    });
+
+    compactBtn.addEventListener('click', () => {
+      mainContent.classList.toggle('compact');
+      compactBtn.textContent = mainContent.classList.contains('compact')
+        ? 'Modo normal'
+        : 'Modo compacto';
+    });
+  </script>
+</body>
+</html>
