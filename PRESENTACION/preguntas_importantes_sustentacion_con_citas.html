@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>Preguntas más importantes para sustentar la tesis</title>
+<style>
+:root {--bg:#f4f7fb; --panel:#fff; --ink:#17324d; --muted:#60758b; --line:#dbe5f0; --brand:#124b97; --soft:#eef5ff; --shadow:0 14px 36px rgba(20,50,85,.10);}
+* {box-sizing:border-box;} html {scroll-behavior:smooth;}
+body {margin:0;font-family:Inter,'Segoe UI',Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at top left, rgba(18,75,151,.08), transparent 20%),radial-gradient(circle at bottom right, rgba(91,95,239,.08), transparent 18%),var(--bg);}
+.layout {display:grid;grid-template-columns:320px 1fr;min-height:100vh;}
+aside {position:sticky;top:0;height:100vh;overflow:auto;background:linear-gradient(180deg,#0f3f80,#144f9d);color:#fff;padding:24px 20px;}
+.tag {display:inline-block;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);font-size:.84rem;margin-bottom:14px;}
+aside h1 {font-size:1.28rem;line-height:1.2;margin:0 0 10px;} aside p {color:rgba(255,255,255,.88);line-height:1.65;font-size:.95rem;}
+.search input {width:100%;border:none;outline:none;border-radius:14px;padding:13px 14px;font-size:.95rem;color:#10325b;}
+.nav {display:grid;gap:10px;margin-top:18px;} .nav a {color:#fff;text-decoration:none;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.10);padding:11px 12px;border-radius:14px;line-height:1.4;font-size:.92rem;}
+main {padding:28px;} .hero {background:linear-gradient(135deg,#124b97,#2e6fd3);color:#fff;border-radius:28px;padding:34px;box-shadow:var(--shadow);}
+.hero h1 {margin:0 0 10px;font-size:clamp(2rem,4vw,3rem);line-height:1.05;} .hero p {margin:0;max-width:980px;line-height:1.75;color:rgba(255,255,255,.92);}
+.stats {display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 24px;} .stat {background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:14px 16px;min-width:180px;}
+.stat strong {display:block;color:var(--brand);font-size:1.2rem;} .stat span {color:var(--muted);font-size:.92rem;}
+.sec {margin-bottom:26px;} .sec-head {background:var(--panel);border:1px solid var(--line);border-left:8px solid var(--accent);border-radius:22px;padding:18px 20px;box-shadow:var(--shadow);margin-bottom:14px;}
+.sec-head h2 {margin:0 0 6px;font-size:1.45rem;} .sec-head p {margin:0;color:var(--muted);line-height:1.65;}
+.cards {display:grid;gap:14px;} .qa-card {background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;}
+.qa-card summary {list-style:none;cursor:pointer;display:flex;gap:14px;align-items:flex-start;padding:18px 18px 18px 16px;} .qa-card summary::-webkit-details-marker {display:none;}
+.num {min-width:62px;text-align:center;padding:8px 10px;background:var(--soft);color:var(--brand);border:1px solid #cfe0f9;border-radius:999px;font-weight:800;font-size:.85rem;}
+.question {font-weight:700;line-height:1.5;font-size:1.02rem;} .qa-body {padding:0 18px 18px 18px;border-top:1px solid var(--line);background:linear-gradient(180deg, rgba(238,245,255,.45), rgba(255,255,255,1));}
+.label {display:inline-block;margin-top:14px;padding:7px 11px;border-radius:999px;background:#f8fbff;border:1px solid var(--line);color:var(--muted);font-size:.82rem;font-weight:700;}
+.qa-body p {margin:10px 0 0;line-height:1.82;color:#244462;} .cite-speech {color:#4d3f8a;}
+.footer {margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px 20px;color:var(--muted);line-height:1.75;}
+@media (max-width:1100px) {.layout {grid-template-columns:1fr;} aside {position:relative;height:auto;} main {padding:18px;} .hero {padding:24px;}}
+@media print {aside {display:none !important;} .layout {display:block;} main {padding:0;} body {background:#fff;} .hero,.sec-head,.qa-card,.footer {box-shadow:none;break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class='layout'>
+  <aside>
+    <div class='tag'>Versión priorizada</div>
+    <h1>Preguntas más importantes para sustentar tu tesis</h1>
+    <p>Selección enfocada en las preguntas que más probablemente te harán sobre problema, teoría, metodología, estadística, resultados y defensa final.</p>
+    <div class='search'><input id='searchInput' type='text' placeholder='Buscar pregunta o concepto...'></div>
+    <nav class='nav'><a href='#sec-1'>Preguntas esenciales del problema y del aporte</a><a href='#sec-2'>Preguntas teóricas clave</a><a href='#sec-3'>Preguntas metodológicas que casi siempre hace el jurado</a><a href='#sec-4'>Preguntas sobre estadística y prueba de hipótesis</a><a href='#sec-5'>Preguntas sobre los resultados que más te conviene dominar</a><a href='#sec-6'>Preguntas críticas o de defensa final</a></nav>
+  </aside>
+  <main>
+    <section class='hero'>
+      <h1>Banco de preguntas clave con respuestas más académicas y fluidas</h1>
+      <p>Esta versión está depurada para priorizar las preguntas más importantes que pueden salir de tu presentación y de tu tesis. Las respuestas están redactadas como si tú las dijeras de manera natural, y cada una incorpora una forma de apoyarte en autores como Arias, Dumas, Hernández-Sampieri, Vara Horna, Field, Nachar, Masse, Carneiro Jr. y Schmelmer, entre otros.</p>
+    </section>
+    <div class='stats'><div class='stat'><strong>27</strong><span>preguntas priorizadas</span></div><div class='stat'><strong>6</strong><span>bloques temáticos</span></div><div class='stat'><strong>Con enfoque oral</strong><span>para responder con más soltura</span></div></div>
+    
+    <section class='sec' id='sec-1'>
+      <div class='sec-head' style='--accent:#124b97'>
+        <h2>Preguntas esenciales del problema y del aporte</h2>
+        <p>Preguntas priorizadas a partir de la presentación y de la tesis, con respuestas breves y formulación oral más académica.</p>
+      </div>
+      <div class='cards'>
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>1.1</span>
+            <span class='question'>¿Cuál fue el problema central de tu investigación?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>El problema central fue que la Caja Municipal de Ahorro y Crédito de Tacna no ofrecía transferencias interbancarias inmediatas y seguía operando con un esquema tradicional basado en procesamiento por lotes. Eso generaba esperas de uno a dos días para la disposición del dinero, afectando la experiencia del cliente, la competitividad institucional y la imagen de modernización tecnológica. Además, el contexto regulatorio exigía interoperabilidad, continuidad y calidad del servicio, por lo que la necesidad de integrar un API REST no era solo técnica, sino también regulatoria.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo puedo sustentar diciendo: “Según el BCRP, en el marco de interoperabilidad de pagos, las entidades deben ofrecer continuidad, calidad del servicio y atención estandarizada de incidentes; por eso, en mi investigación el problema no fue solamente la demora operativa, sino también la necesidad de responder a ese entorno regulatorio”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>1.2</span>
+            <span class='question'>¿Por qué elegiste este tema?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Elegí este tema porque responde a una necesidad real dentro de la Caja Tacna y, al mismo tiempo, a una tendencia del sistema financiero actual. En la tesis se observa que el sector financiero exige servicios más rápidos, seguros y accesibles, y que las transferencias inmediatas mejoran la experiencia del cliente. Entonces, estudiar el impacto de integrar un API REST permitía analizar una solución tecnológica concreta sobre un proceso crítico y con impacto directo en la institución.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo diría así: “Fuquen explica que la transformación de los procesos de pago ha llevado a esquemas más ágiles y seguros; y el BCRP, en 2024, refuerza esa necesidad de interoperabilidad. Por eso consideré que este tema era pertinente tanto académica como profesionalmente”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>1.3</span>
+            <span class='question'>¿Cuál fue el objetivo general de tu tesis?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>El objetivo general fue determinar el impacto de la integración de un API REST en el proceso de transferencias interbancarias en la Caja Municipal de Ahorro y Crédito de Tacna, 2025. Es decir, no me limité a describir la tecnología, sino que busqué demostrar con evidencia si esa integración mejoraba realmente el proceso.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Una forma natural de decirlo es: “Siguiendo la lógica metodológica de Hernández-Sampieri, el objetivo general se formuló en coherencia con el problema de investigación, buscando medir el efecto de una variable sobre otra”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>1.4</span>
+            <span class='question'>¿Cuál consideras que es el principal aporte de tu investigación?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Considero que el principal aporte de mi investigación es demostrar, con registros institucionales reales y análisis estadístico, que la integración de un API REST mejora un proceso financiero crítico. En concreto, se evidenció una reducción significativa del tiempo de procesamiento y del costo operativo, una mejora significativa de la disponibilidad operativa y el mantenimiento de una alta confiabilidad del servicio.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo expresaría así: “El aporte principal no fue solo implementar una solución, sino demostrar empíricamente su impacto sobre el proceso, lo cual fortalece la toma de decisiones dentro de la institución”.</p>
+          </div>
+        </details>
+        </div>
+    </section>
+    
+    <section class='sec' id='sec-2'>
+      <div class='sec-head' style='--accent:#166088'>
+        <h2>Preguntas teóricas clave</h2>
+        <p>Preguntas priorizadas a partir de la presentación y de la tesis, con respuestas breves y formulación oral más académica.</p>
+      </div>
+      <div class='cards'>
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>2.1</span>
+            <span class='question'>¿Por qué usaste la teoría del Cuadrángulo del Diablo?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Usé esa teoría porque me permitía evaluar el proceso de transferencias interbancarias de manera integral y no solo desde la rapidez. Dumas, La Rosa, Mendling y Reijers, en su libro Fundamentals of Business Process Management, plantean que el desempeño de un proceso debe analizarse equilibrando tiempo, costo, calidad y flexibilidad. Esa base teórica fue muy útil porque se alineó con los indicadores que trabajé: tiempo de procesamiento, tasa de errores, costo operativo y disponibilidad operativa.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>En sustentación lo puedo decir así: “Según Dumas y sus coautores, el desempeño de un proceso no debe evaluarse en una sola dimensión, sino en el equilibrio entre tiempo, costo, calidad y flexibilidad; por eso, en mi investigación tomé esas dimensiones como base para definir los indicadores del proceso”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>2.2</span>
+            <span class='question'>¿Por qué API REST fue la tecnología adecuada para tu estudio?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque API REST permite integrar sistemas mediante una interfaz uniforme, ligera y sin estado, lo que favorece rapidez, desacoplamiento y capacidad de respuesta. En el contexto financiero, eso es valioso porque se necesita que los sistemas intercambien información de manera eficiente y segura. En mi investigación, el API REST fue la tecnología que permitió pasar de un esquema tradicional a uno más inmediato e interoperable.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo diría así: “Como explica Masse en REST API Design Rulebook, el valor de una API REST está en ofrecer una interfaz uniforme para conectar sistemas; y Carneiro Jr. y Schmelmer señalan que estas arquitecturas favorecen robustez y escalabilidad. Por eso fue una tecnología coherente con el problema estudiado”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>2.3</span>
+            <span class='question'>¿Por qué incorporaste el marco normativo del BCRP dentro del marco teórico?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque en esta investigación el problema no era solo tecnológico. La interoperabilidad de pagos en el Perú se desarrolla dentro de un marco regulatorio que exige continuidad, calidad del servicio, seguridad y atención de incidentes. Entonces, el sustento teórico debía incluir también la base normativa que explicaba por qué la integración era necesaria en el contexto real de la Caja Tacna.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>En forma natural: “Consideré el marco del BCRP porque el estudio se desarrolla en un entorno financiero regulado; por tanto, la solución tecnológica debía analizarse también a la luz de los criterios de interoperabilidad y calidad del servicio exigidos por el regulador”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>2.4</span>
+            <span class='question'>¿Por qué definiste la variable dependiente como proceso de transferencias interbancarias?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque lo que quería medir no era solo el comportamiento de una aplicación aislada, sino el efecto de la integración tecnológica sobre un proceso de negocio completo. Dumas y sus coautores sostienen que un proceso debe evaluarse por su rendimiento integral. En ese sentido, la variable dependiente fue el proceso de transferencias interbancarias y no simplemente el sistema informático.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo puedo explicar así: “Tomé como base a Dumas, quien entiende el proceso como un flujo de actividades que debe evaluarse en varias dimensiones; por eso mi variable dependiente fue el proceso de transferencias y no únicamente la herramienta tecnológica”.</p>
+          </div>
+        </details>
+        </div>
+    </section>
+    
+    <section class='sec' id='sec-3'>
+      <div class='sec-head' style='--accent:#1b7f8b'>
+        <h2>Preguntas metodológicas que casi siempre hace el jurado</h2>
+        <p>Preguntas priorizadas a partir de la presentación y de la tesis, con respuestas breves y formulación oral más académica.</p>
+      </div>
+      <div class='cards'>
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>3.1</span>
+            <span class='question'>¿Por qué tu investigación es aplicada?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Mi investigación es aplicada porque estuvo orientada a resolver un problema práctico y específico dentro de una institución real. Vara Horna señala que la investigación aplicada usa conocimiento científico para intervenir en una realidad concreta. En mi caso, esa realidad fue el proceso de transferencias interbancarias de la Caja Tacna.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo diría así: “Según Vara Horna, la investigación aplicada busca resolver problemas específicos en contextos reales; por eso este estudio se ubica en ese tipo, ya que analiza una necesidad institucional concreta”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>3.2</span>
+            <span class='question'>¿Por qué dijiste que tu investigación es explicativa?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque no solo describí el proceso ni la tecnología, sino que busqué explicar el efecto de la integración del API REST sobre el proceso de transferencias interbancarias. Hernández-Sampieri, Fernández-Collado y Baptista señalan que los estudios explicativos buscan responder por qué ocurre un fenómeno y bajo qué condiciones se manifiesta. En esa línea, mi investigación evaluó la relación causa-efecto entre la variable independiente y la variable dependiente.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>En sustentación lo puedo formular así: “Según Hernández-Sampieri, el nivel explicativo se orienta a establecer relaciones de influencia entre variables; por eso en mi tesis analicé si la integración del API REST producía cambios en el proceso de transferencias”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>3.3</span>
+            <span class='question'>¿Por qué elegiste un diseño cuasi experimental y no experimental puro?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Elegí un diseño cuasi experimental porque trabajé con grupos ya existentes dentro de la realidad institucional y no era posible asignar aleatoriamente las transferencias a una condición u otra. Hernández-Sampieri y Mendoza indican que este diseño se utiliza precisamente cuando no se puede realizar asignación al azar, pero sí se pueden comparar grupos intactos antes y después de una intervención.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo diría así: “Según Hernández-Sampieri y Mendoza, el diseño cuasi experimental es pertinente cuando se trabaja con grupos ya establecidos y no es posible aleatorizar; por eso fue el diseño adecuado para mi estudio”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>3.4</span>
+            <span class='question'>¿Por qué usaste muestreo no probabilístico intencional?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque necesitaba seleccionar registros que cumplieran criterios específicos de integridad de datos, trazabilidad técnica y confirmación operativa. No se trataba de elegir cualquier transferencia al azar, sino aquellas que permitieran una comparación metodológicamente válida entre el pretest y el postest. Además, la presentación precisa que la muestra provino de la población accesible y fue seleccionada mediante muestreo no probabilístico intencional.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Una forma natural de decirlo es: “Siguiendo la definición de población planteada por Arias, primero establecí la población general y luego la población accesible. A partir de allí utilicé un muestreo intencional, porque requería registros con condiciones técnicas específicas para asegurar validez en la comparación”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>3.5</span>
+            <span class='question'>¿Por qué no usaste encuestas o entrevistas?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque las variables de estudio eran operativas y podían medirse directamente con registros objetivos del sistema. El tiempo de procesamiento, la tasa de errores, el costo operativo y la disponibilidad operativa no dependían de percepción subjetiva, sino de trazas y registros reales. Por eso fue más riguroso trabajar con registros transaccionales, de monitoreo y pruebas de carga.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo respondería así: “En este caso, la evidencia más sólida no estaba en opiniones, sino en registros reales del sistema; por eso opté por instrumentos objetivos como logs, monitoreo y registros transaccionales”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>3.6</span>
+            <span class='question'>¿Cómo validaste tus instrumentos?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Los instrumentos fueron sometidos a juicio de expertos y luego se evaluó su confiabilidad mediante el coeficiente V de Aiken. En la tesis, esa validación permitió comprobar que los indicadores eran pertinentes y consistentes para medir las variables planteadas. Ese procedimiento fortaleció la validez de contenido del instrumento.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo diría así: “La validez de contenido se respaldó con juicio de expertos y con V de Aiken, en línea con la metodología cuantitativa planteada por Palella y Martins”.</p>
+          </div>
+        </details>
+        </div>
+    </section>
+    
+    <section class='sec' id='sec-4'>
+      <div class='sec-head' style='--accent:#218380'>
+        <h2>Preguntas sobre estadística y prueba de hipótesis</h2>
+        <p>Preguntas priorizadas a partir de la presentación y de la tesis, con respuestas breves y formulación oral más académica.</p>
+      </div>
+      <div class='cards'>
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>4.1</span>
+            <span class='question'>¿Por qué aplicaste la prueba de Kolmogórov–Smirnov?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Apliqué Kolmogórov–Smirnov para determinar si los datos seguían una distribución normal y, a partir de ello, elegir correctamente el estadístico inferencial. En la tesis, tanto para tiempo como para costo, los valores de significancia fueron menores a 0,05, por lo que se concluyó que los datos no provenían de una distribución normal.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo puedo decir así: “Siguiendo a Field, antes de seleccionar una prueba inferencial es necesario verificar el supuesto de normalidad; por eso utilicé Kolmogórov–Smirnov en los indicadores cuantitativos”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>4.2</span>
+            <span class='question'>¿Por qué elegiste la prueba U de Mann–Whitney?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>La elegí porque estaba comparando dos grupos independientes y, además, los datos no cumplían el supuesto de normalidad. Nachar explica que la U de Mann–Whitney es adecuada para comparar dos muestras independientes cuando no corresponde utilizar pruebas paramétricas. Por eso fue la opción metodológicamente correcta para contrastar las hipótesis sobre tiempo de procesamiento y costo operativo.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>En sustentación lo puedo plantear así: “Según Nachar, la U de Mann–Whitney es una prueba apropiada para comparar dos grupos independientes cuando los datos no son normales; por eso la usé para tiempo y costo”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>4.3</span>
+            <span class='question'>¿Por qué usaste Chi-cuadrado en otras hipótesis?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque en esas hipótesis trabajé con variables categóricas, como el estado de la transferencia o el registro en día no hábil. En esos casos no correspondía una prueba de comparación de medianas, sino una prueba de asociación entre categorías. Por eso utilicé Chi-cuadrado de Pearson para la tasa de errores y la disponibilidad operativa.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo diría así: “Dado que esas variables eran categóricas, la prueba adecuada era Chi-cuadrado, porque permite analizar si existe asociación significativa entre la condición del estudio y la categoría observada”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>4.4</span>
+            <span class='question'>¿Qué significa que el valor p sea menor a 0,05?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Significa que existe evidencia estadística suficiente para rechazar la hipótesis nula al nivel de significancia establecido. En mi estudio, eso ocurrió en el tiempo de procesamiento, el costo operativo y la disponibilidad operativa. Por tanto, esas diferencias no se interpretaron como casuales, sino como estadísticamente significativas.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>En forma natural: “Siguiendo la interpretación estadística que desarrolla Field, un valor p menor a 0,05 indica que la diferencia observada es suficientemente fuerte como para rechazar la hipótesis nula”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>4.5</span>
+            <span class='question'>¿Por qué no se confirmó significativamente la hipótesis sobre tasa de errores?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque, aunque descriptivamente la tasa de errores bajó de 1,3 % a 1,0 %, el valor p fue mayor a 0,05. Eso significa que no hubo evidencia estadística suficiente para afirmar que la reducción se debió al efecto de la integración. Sin embargo, el resultado sigue siendo importante, porque muestra que la confiabilidad del proceso se mantuvo alta antes y después de la intervención.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Yo lo diría así: “En este caso, la integración no mostró una reducción significativa de errores, pero sí mantuvo la confiabilidad del servicio en niveles altos, lo cual también es un resultado valioso”.</p>
+          </div>
+        </details>
+        </div>
+    </section>
+    
+    <section class='sec' id='sec-5'>
+      <div class='sec-head' style='--accent:#5b5fef'>
+        <h2>Preguntas sobre los resultados que más te conviene dominar</h2>
+        <p>Preguntas priorizadas a partir de la presentación y de la tesis, con respuestas breves y formulación oral más académica.</p>
+      </div>
+      <div class='cards'>
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>5.1</span>
+            <span class='question'>¿Cuál fue el resultado más importante de tu tesis?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>El resultado más importante fue la mejora significativa del tiempo de procesamiento. En el resumen de la tesis se reporta que el tiempo promedio pasó de 23 830,98 segundos en el pretest a 729,60 segundos en el postest, y que la mediana pasó de 10 515,04 a 0,63 segundos, con un valor p menor a 0,001. Eso evidencia una mejora muy marcada en la rapidez del proceso.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo puedo expresar así: “El hallazgo más fuerte fue la reducción del tiempo de procesamiento, que estadísticamente resultó significativa y operativamente representa el paso de varias horas a un comportamiento prácticamente inmediato”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>5.2</span>
+            <span class='question'>¿Cómo interpretas la reducción del costo operativo?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>La interpreto como una evidencia de eficiencia económica del nuevo proceso. El costo operativo promedio pasó de 9,99 soles a 3,79 soles y esa diferencia fue significativa. Desde la perspectiva de Dumas, el costo es una dimensión del desempeño del proceso; por eso este resultado demuestra que la mejora tecnológica no solo benefició al cliente, sino también a la institución.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>En sustentación lo puedo decir así: “Según Dumas, el costo también forma parte del desempeño de procesos; por eso la reducción de 9,99 a 3,79 soles demuestra que la integración del API REST mejoró la eficiencia operativa en términos económicos”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>5.3</span>
+            <span class='question'>¿Por qué dices que mejoró la disponibilidad operativa?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Porque en el estudio la disponibilidad operativa se evaluó a través del registro de transferencias en días no hábiles, y ese porcentaje aumentó de 7,7 % a 30,6 %, con diferencia significativa. Eso muestra que el servicio ganó mayor capacidad de operación fuera del esquema tradicional, lo cual es consistente con la exigencia de continuidad de los servicios interoperables.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo respondería así: “Tomando como base el marco del BCRP sobre continuidad del servicio, interpreté la disponibilidad operativa como la capacidad real de atender operaciones en condiciones más amplias, y esa capacidad aumentó significativamente en el postest”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>5.4</span>
+            <span class='question'>¿Qué te permite afirmar que el API REST sí mejoró el proceso?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Me lo permiten afirmar tres elementos en conjunto: primero, los resultados descriptivos, que mostraron reducciones importantes en tiempo y costo, así como una mejora en disponibilidad; segundo, los contrastes estadísticos, que confirmaron significancia en esas tres dimensiones; y tercero, el hecho de que la confiabilidad del proceso se mantuvo alta. En otras palabras, hubo evidencia operativa y evidencia estadística.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo puedo decir así: “No me baso solo en percepciones ni en una mejora visual; la afirmación se sostiene en registros reales y en pruebas estadísticas que confirmaron el efecto de la integración en varias dimensiones del proceso”.</p>
+          </div>
+        </details>
+        </div>
+    </section>
+    
+    <section class='sec' id='sec-6'>
+      <div class='sec-head' style='--accent:#8a4fff'>
+        <h2>Preguntas críticas o de defensa final</h2>
+        <p>Preguntas priorizadas a partir de la presentación y de la tesis, con respuestas breves y formulación oral más académica.</p>
+      </div>
+      <div class='cards'>
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>6.1</span>
+            <span class='question'>¿Cuáles fueron las principales limitaciones de tu investigación?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Las principales limitaciones fueron la temporal y la contextual. Temporal, porque el estudio se centró en el año 2025 y no evaluó efectos a más largo plazo. Contextual, porque se desarrolló dentro de la Caja Tacna y, por tanto, sus hallazgos describen ese entorno específico. Eso no invalida los resultados, pero sí significa que su generalización a otras entidades requiere nuevas validaciones.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo puedo decir de forma natural así: “Reconozco que mis hallazgos son sólidos para el contexto de la Caja Tacna, pero su extrapolación a otras entidades debe hacerse con cautela, porque pueden variar procesos, tecnologías y políticas operativas”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>6.2</span>
+            <span class='question'>Si el jurado te pregunta cuál fue la principal fortaleza metodológica de tu estudio, ¿qué responderías?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Respondería que la principal fortaleza metodológica fue trabajar con registros institucionales reales y con indicadores operativos objetivos. Eso permitió evaluar el impacto de la integración del API REST a partir de evidencia directa del sistema y no de percepciones. Además, el análisis fue coherente con el diseño cuasi experimental y con pruebas estadísticas adecuadas al tipo de datos.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo diría así: “La mayor fortaleza fue la combinación entre datos reales, un diseño metodológico coherente y un análisis estadístico apropiado, lo que permitió sostener las conclusiones con evidencia objetiva”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>6.3</span>
+            <span class='question'>¿Qué recomendación consideras más importante después de tu estudio?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>La recomendación más importante es mantener el monitoreo continuo del sistema de transferencias inmediatas basado en API REST. Esto es clave para detectar oportunamente fallas, degradaciones del servicio o cuellos de botella, y asegurar la continuidad operativa. Además, esa recomendación se alinea con la literatura de monitoreo y observabilidad, así como con el entorno regulatorio del BCRP.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>Lo formularía así: “La recomendación principal es fortalecer el monitoreo continuo, porque la mejora del proceso no debe verse como un punto de llegada, sino como una capacidad que debe sostenerse y supervisarse permanentemente”.</p>
+          </div>
+        </details>
+        
+        <details class='qa-card'>
+          <summary>
+            <span class='num'>6.4</span>
+            <span class='question'>Si tuvieras que defender en una sola idea por qué tu tesis merece ser aprobada, ¿qué dirías?</span>
+          </summary>
+          <div class='qa-body'>
+            <div class='label'>Respuesta recomendada</div>
+            <p>Diría que mi tesis merece ser aprobada porque aborda un problema real del sector financiero, utiliza un marco teórico y metodológico coherente, trabaja con evidencia institucional objetiva y demuestra, con análisis estadístico, que la integración de un API REST mejoró significativamente el proceso de transferencias interbancarias en dimensiones clave como tiempo, costo y disponibilidad operativa.</p>
+            <div class='label'>Cómo decirlo de forma natural con respaldo bibliográfico</div>
+            <p class='cite-speech'>La forma más natural sería: “Considero que la tesis aporta valor porque no solo propone una solución tecnológica, sino que demuestra su impacto con evidencia real y con sustento teórico y metodológico consistente”.</p>
+          </div>
+        </details>
+        </div>
+    </section>
+    
+    <div class='footer'><strong>Base de elaboración:</strong> esta selección se construyó priorizando los ejes más visibles en la presentación —problema, objetivos, hipótesis, bases teóricas, metodología, muestra, pruebas estadísticas y resultados— y contrastándolos con el desarrollo completo de la tesis y su bibliografía.</div>
+  </main>
+</div>
+<script>
+const input = document.getElementById('searchInput');
+const cards = [...document.querySelectorAll('.qa-card')];
+input.addEventListener('input', e => {
+  const term = e.target.value.toLowerCase().trim();
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(term) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>
