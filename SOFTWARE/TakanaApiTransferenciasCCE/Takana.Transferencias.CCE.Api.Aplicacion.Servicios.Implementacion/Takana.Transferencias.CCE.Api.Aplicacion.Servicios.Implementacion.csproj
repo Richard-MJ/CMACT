@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+	<PackageReference Include="Polly" Version="8.6.4" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.1.2" />
+	<PackageReference Include="SSH.NET" Version="2025.0.0" />
+	<PackageReference Include="CsvHelper" Version="33.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Common.Interfaces\Takana.Transferencias.CCE.Api.Common.Interfaces.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Common\Takana.Transferencias.CCE.Api.Common.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Dominio.Entidades\Takana.Transferencias.CCE.Api.Dominio.Entidades.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Dominio.Servicios\Takana.Transferencias.CCE.Api.Dominio.Servicios.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Loggin.Interfaz\Takana.Transferencias.CCE.Api.Loggin.Interfaz.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+</Project>

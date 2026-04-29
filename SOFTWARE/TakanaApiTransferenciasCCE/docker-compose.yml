@@ -1,0 +1,39 @@
+services:
+//  api.transferencia.cce:
+//    build:
+//      context: .
+//      dockerfile: Takana.Transferencias.CCE.Api/Dockerfile
+//    ports:
+//      - "5000:5000"
+//      - "443:443"
+//    image: transferenciacce:latest
+//    restart: always
+//    container_name: apitransferenciacce
+
+//  api.gateway.cce:
+//    build:
+//      context: .
+//      dockerfile: ApiGatewayTransferenciasCCE/Dockerfile
+//    ports:
+//    - "8080:8080"
+//     - "8081:8081"
+//    image: apigatewaycce:latest
+//    restart: always
+//    container_name: apigatewaycee
+
+  consul:
+    image: hashicorp/consul
+    ports:
+      - "8500:8500"
+      - "8501:8501"
+      - "8400:8400"
+      - "8600:8600"
+      - "8600:8600/udp"
+    restart: always
+    container_name: transferenciascce-consul
+    networks:
+      - consul
+
+networks:
+  consul:
+    driver: bridge

@@ -1,0 +1,8 @@
+{
+  "HsmGateway.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\rmamanij_dev\\Desktop\\HsmGateWay\\HsmGateway.Api",
+  "HsmGateway.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\rmamanij_dev\\Desktop\\HsmGateWay\\HsmGateway.Application",
+  "HsmGateway.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\rmamanij_dev\\Desktop\\HsmGateWay\\HsmGateway.Domain",
+  "HsmGateway.HsmAdapter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\rmamanij_dev\\Desktop\\HsmGateWay\\HsmGateway.HsmAdapter",
+  "HsmGateway.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\rmamanij_dev\\Desktop\\HsmGateWay\\HsmGateway.Infrastructure",
+  "HsmGateway.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\rmamanij_dev\\Desktop\\HsmGateWay\\HsmGateway.SharedKernel"
+}

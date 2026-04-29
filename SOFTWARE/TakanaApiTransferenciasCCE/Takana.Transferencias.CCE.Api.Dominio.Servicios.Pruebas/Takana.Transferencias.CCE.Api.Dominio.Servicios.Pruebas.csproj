@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="C:\Users\desarrollador01\.nuget\packages\microsoft.testplatform.testhost\16.7.1\build\netcoreapp2.1\x64\testhost.dll" />
+    <Content Remove="C:\Users\desarrollador01\.nuget\packages\microsoft.testplatform.testhost\16.7.1\build\netcoreapp2.1\x64\testhost.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="C:\Users\desarrollador01\.nuget\packages\nunit3testadapter\4.5.0\build\netcoreapp3.1\nunit.engine.api.dll" />
+    <None Remove="C:\Users\desarrollador01\.nuget\packages\nunit3testadapter\4.5.0\build\netcoreapp3.1\nunit.engine.core.dll" />
+    <None Remove="C:\Users\desarrollador01\.nuget\packages\nunit3testadapter\4.5.0\build\netcoreapp3.1\nunit.engine.dll" />
+    <None Remove="C:\Users\desarrollador01\.nuget\packages\nunit3testadapter\4.5.0\build\netcoreapp3.1\NUnit3.TestAdapter.dll" />
+    <None Remove="C:\Users\desarrollador01\.nuget\packages\nunit3testadapter\4.5.0\build\netcoreapp3.1\NUnit3.TestAdapter.pdb" />
+    <None Remove="C:\Users\desarrollador01\.nuget\packages\nunit3testadapter\4.5.0\build\netcoreapp3.1\testcentric.engine.metadata.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="5.2.1" />
+    <PackageReference Include="Moq" Version="4.20.72" />
+    <PackageReference Include="NUnit" Version="4.3.2" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.3" />
+    <PackageReference Include="System.ValueTuple" Version="4.6.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.8.3" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.8.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Common.Interfaces\Takana.Transferencias.CCE.Api.Common.Interfaces.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Common\Takana.Transferencias.CCE.Api.Common.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Dominio.Servicios\Takana.Transferencias.CCE.Api.Dominio.Servicios.csproj" />
+  </ItemGroup>
+</Project>

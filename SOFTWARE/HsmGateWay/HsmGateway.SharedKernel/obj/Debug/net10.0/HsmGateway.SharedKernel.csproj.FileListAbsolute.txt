@@ -1,0 +1,11 @@
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\bin\Debug\net10.0\HsmGateway.SharedKernel.deps.json
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\bin\Debug\net10.0\HsmGateway.SharedKernel.dll
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\bin\Debug\net10.0\HsmGateway.SharedKernel.pdb
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\HsmGateway.SharedKernel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\HsmGateway.SharedKernel.AssemblyInfoInputs.cache
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\HsmGateway.SharedKernel.AssemblyInfo.cs
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\HsmGateway.SharedKernel.csproj.CoreCompileInputs.cache
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\HsmGateway.SharedKernel.dll
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\refint\HsmGateway.SharedKernel.dll
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\HsmGateway.SharedKernel.pdb
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.SharedKernel\obj\Debug\net10.0\ref\HsmGateway.SharedKernel.dll

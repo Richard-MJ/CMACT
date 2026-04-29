@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Polly" Version="8.6.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Common\Takana.Transferencias.CCE.Api.Common.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Dominio.Entidades\Takana.Transferencias.CCE.Api.Dominio.Entidades.csproj" />
+  </ItemGroup>
+</Project>

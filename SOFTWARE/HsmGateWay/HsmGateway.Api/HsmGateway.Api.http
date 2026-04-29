@@ -1,0 +1,6 @@
+@HsmGateway.Api_HostAddress = http://localhost:5200
+
+GET {{HsmGateway.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

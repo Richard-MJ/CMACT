@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>5b50acf4-8646-4e40-8894-51a57b986105</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <PackageReference Include="StackExchange.Redis" Version="2.8.31" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Loggin.Interfaz\Takana.Transferencias.CCE.Api.Loggin.Interfaz.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Dominio.Entidades\Takana.Transferencias.CCE.Api.Dominio.Entidades.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Aplicacion.Servicios.Implementacion\Takana.Transferencias.CCE.Api.Aplicacion.Servicios.Implementacion.csproj" />
+  </ItemGroup>
+</Project>

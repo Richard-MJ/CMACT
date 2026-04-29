@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.5.11619.145 insiders
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagareElectronico.Api", "PagareElectronico.Api\PagareElectronico.Api.csproj", "{3E39784C-E604-4C30-9105-D1174C872DF7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{59A811AE-4D40-4777-9A5A-1F4BF7834394} = {59A811AE-4D40-4777-9A5A-1F4BF7834394}
+		{EF62E2F2-8E50-41C2-9CEB-539EA07669BC} = {EF62E2F2-8E50-41C2-9CEB-539EA07669BC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagareElectronico.Aplicacion", "PagareElectronico.Aplicacion\PagareElectronico.Aplicacion.csproj", "{EF62E2F2-8E50-41C2-9CEB-539EA07669BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PagareElectronico.Infraestructura", "PagareElectronico.Infraestructura\PagareElectronico.Infraestructura.csproj", "{59A811AE-4D40-4777-9A5A-1F4BF7834394}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EF62E2F2-8E50-41C2-9CEB-539EA07669BC} = {EF62E2F2-8E50-41C2-9CEB-539EA07669BC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E39784C-E604-4C30-9105-D1174C872DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E39784C-E604-4C30-9105-D1174C872DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E39784C-E604-4C30-9105-D1174C872DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E39784C-E604-4C30-9105-D1174C872DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF62E2F2-8E50-41C2-9CEB-539EA07669BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF62E2F2-8E50-41C2-9CEB-539EA07669BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF62E2F2-8E50-41C2-9CEB-539EA07669BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF62E2F2-8E50-41C2-9CEB-539EA07669BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59A811AE-4D40-4777-9A5A-1F4BF7834394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A811AE-4D40-4777-9A5A-1F4BF7834394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A811AE-4D40-4777-9A5A-1F4BF7834394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A811AE-4D40-4777-9A5A-1F4BF7834394}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

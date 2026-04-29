@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+	<PackageReference Include="Hangfire" Version="1.8.22" />
+	<PackageReference Include="Hangfire.Redis.StackExchange" Version="1.12.0" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Takana.Transferencia.CCE.Api.Loggin.Nlog\Takana.Transferencias.CCE.Api.Loggin.Nlog.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Aplicacion.Servicios.Implementacion\Takana.Transferencias.CCE.Api.Aplicacion.Servicios.Implementacion.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Common.Interfaces\Takana.Transferencias.CCE.Api.Common.Interfaces.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Datos\Takana.Transferencias.CCE.Api.Datos.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Loggin.Interfaz\Takana.Transferencias.CCE.Api.Loggin.Interfaz.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Dominio.Servicios\Takana.Transferencias.CCE.Api.Dominio.Servicios.csproj" />
+    <ProjectReference Include="..\Takana.Transferencias.CCE.Api.Common\Takana.Transferencias.CCE.Api.Common.csproj" />
+  </ItemGroup>
+</Project>

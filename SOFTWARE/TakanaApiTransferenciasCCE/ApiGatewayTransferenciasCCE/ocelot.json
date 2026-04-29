@@ -1,0 +1,41 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": null,
+    "RequestIdKey": "OcRequestId",
+    "ServiceDiscoveryProvider": {
+      "Host": "#{ServidorConsul}#",
+      "Port": "#{PuertoConsul}#",
+      "Type": "Consul"
+    }
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/v1/health/service/#{NombreServicio}#",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/health/consul/#{NombreServicio}#",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "#{ServidorConsul}#",
+          "Port": "#{PuertoConsul}#"
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "#{EsquemaServicio}#",
+      "UpstreamPathTemplate": "/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "OPTIONS" ],
+      "ServiceName": "#{NombreServicio}#",
+      "LoadBalancerOptions": {
+        "Type": "#{TipoBalanceoCarga}#"
+      },
+      "DangerousAcceptAnyServerCertificateValidator": true,
+      "CorsOptions": {
+        "AllowedOrigins": [ "*" ],
+        "AllowedMethods": [ "GET", "POST" ],
+        "AllowedHeaders": [ "*" ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+[
+  {
+    "ContainingType": "HsmGateway.Api.Controllers.HsmDiagnosticsController",
+    "Method": "Sign1103",
+    "RelativePath": "api/v1/hsm-diagnostics/sign-1103",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HsmGateway.Api.Contracts.HsmSignDiagnosticRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HsmGateway.Api.Contracts.HsmSignDiagnosticResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HsmGateway.Api.Controllers.HsmController",
+    "Method": "GetConnectionStatus",
+    "RelativePath": "api/v1/hsm/connection",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "HsmGateway.Api.Contracts.HsmConnectionResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 503
+      }
+    ]
+  },
+  {
+    "ContainingType": "HsmGateway.Api.Controllers.HsmController",
+    "Method": "Sign",
+    "RelativePath": "api/v1/hsm/sign",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HsmGateway.Api.Contracts.HsmSignRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HsmGateway.Api.Contracts.HsmSignedResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "HsmGateway.Api.Controllers.HsmController",
+    "Method": "Verify",
+    "RelativePath": "api/v1/hsm/verify",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HsmGateway.Api.Contracts.HsmVerifyRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "HsmGateway.Api.Contracts.HsmVerifyResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 400
+      }
+    ]
+  }
+]

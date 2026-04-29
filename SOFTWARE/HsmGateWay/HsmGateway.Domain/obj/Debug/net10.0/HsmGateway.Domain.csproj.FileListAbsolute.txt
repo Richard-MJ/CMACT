@@ -1,0 +1,15 @@
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\bin\Debug\net10.0\HsmGateway.Domain.deps.json
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\bin\Debug\net10.0\HsmGateway.Domain.dll
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\bin\Debug\net10.0\HsmGateway.Domain.pdb
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\bin\Debug\net10.0\HsmGateway.SharedKernel.dll
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\bin\Debug\net10.0\HsmGateway.SharedKernel.pdb
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGateway.Domain.csproj.AssemblyReference.cache
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGateway.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGateway.Domain.AssemblyInfoInputs.cache
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGateway.Domain.AssemblyInfo.cs
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGateway.Domain.csproj.CoreCompileInputs.cache
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGatew.A5DE5774.Up2Date
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGateway.Domain.dll
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\refint\HsmGateway.Domain.dll
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\HsmGateway.Domain.pdb
+C:\Users\rmamanij_dev\Desktop\HsmGateWay\HsmGateway.Domain\obj\Debug\net10.0\ref\HsmGateway.Domain.dll
